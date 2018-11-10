@@ -1,0 +1,291 @@
+<link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../assets/css/Gym.css" />
+<link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+<link rel="stylesheet" href="../../../assets/css/reset.css">
+<!-- CSS reset -->
+<link rel="stylesheet" href="../../../assets/css/searchEnginenav.css">
+<link rel="stylesheet" href="../../../assets/css/style.css">
+<!-- Resource style -->
+<link rel="stylesheet" href="../../../assets/css/popup.css" />
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../assets/css/videos.css">
+<link rel="stylesheet" href="../../assets/css/reset.css">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script src="../../../assets/js/modernizr.js"></script>
+<!-- Modernizr -->
+<script src="../../../assets/js/jquery.min.js"></script>
+<script>
+    jQuery(document).ready(function($) {
+
+        $('#myCarousel').carousel({
+            interval: 5000
+        });
+
+        //Handles the carousel thumbnails
+        $('[id^=carousel-selector-]').click(function() {
+            var id_selector = $(this).attr("id");
+            try {
+                var id = /-(\d+)$/.exec(id_selector)[1];
+                console.log(id_selector, id);
+                jQuery('#myCarousel').carousel(parseInt(id));
+            } catch (e) {
+                console.log('Regex failed!', e);
+            }
+        });
+        // When the carousel slides, auto update the text
+        $('#myCarousel').on('slid.bs.carousel', function(e) {
+            var id = $('.item.active').data('slide-number');
+            $('#carousel-text').html($('#slide-content-' + id).html());
+        });
+    });
+</script>
+<div class="wrapper">
+    <nav class="cd-stretchy-nav">
+        <a class="cd-nav-trigger" href="#0">
+            <span aria-hidden="true"></span>
+        </a>
+
+        <ul>
+          <li><a href="/" class="active"><span>HomePage</span></a></li>
+          <li ng-hide="logged"><a href="/register"><span>Sign Up</span></a></li>
+          <li ng-hide="logged"><a href="/login"><span>Sign In</span></a></li>
+          <li ng-show="logged"><a href="/" ng-click="main.logout()"><span>Sign Out</span></a></li>
+          <li ng-show="logged"><a href="javascript:void(0)" ng-click="goToProfile()"><span>My Profile</span></a></li>
+           <li><a href="/videos"><span>Videos</span></a></li>
+          <li><a href="/faqs"><span>FAQs</span></a></li>
+              <li><a href="/about"><span>About us</span></a></li>
+          <li><a href="/contactUs"><span>Contact Us</span></a></li>
+        </ul>
+
+        <span aria-hidden="true" class="stretchy-nav-bg"></span>
+    </nav>
+
+
+    <div class="container">
+        <div id="main_area">
+            <!-- Slider -->
+            <div class="row">
+                <div class="col-sm-6" id="slider-thumbs">
+                    <!-- Bottom switcher of slider -->
+                    <ul class="hide-bullets">
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-0">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/1KGU6iB5MVE" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-1">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/6AkjRbSj6W4" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-2">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/-2RszuyACbM" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-3">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/mds3SH6w2c8" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-4">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/6LtglSkz7po" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-5">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/pQ6748DMXVo" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-6">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/Cz3q1R0oHmE" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-7">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/26U_seo0a1g" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-8">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/9z4Kft47kBM" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-9">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/CMm6tDavSXg" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-10">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/CPQ1budJRIQ" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                        <li class="col-sm-3">
+                            <a class="thumbnail" id="carousel-selector-11">
+                                <div class="vid">
+                                    <iframe width="560" height="315" src="http://youtube.com/embed/wzhzkKccBi8" allowfullscreen="" style="border-radius: 20px;"></iframe>
+                                </div>
+                                <!--./vid -->
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-xs-12" id="slider">
+                        <!-- Top part of the slider -->
+                        <div class="row">
+                            <div class="col-sm-12" id="carousel-bounding-box">
+                                <div class="carousel slide" id="myCarousel">
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+
+
+                                        <div class="item" data-slide-number="1">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/1KGU6iB5MVE" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="2">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/6AkjRbSj6W4" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="3">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/-2RszuyACbM" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="4">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/mds3SH6w2c8" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="5">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/6LtglSkz7po" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="6">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/pQ6748DMXVo" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="7">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/Cz3q1R0oHmE" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="8">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/26U_seo0a1g" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="9">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/9z4Kft47kBM" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="10">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/CMm6tDavSXg" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="11">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/CPQ1budJRIQ" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                        <div class="item" data-slide-number="12">
+                                            <div class="vid">
+                                                <iframe width="560" height="315" src="http://youtube.com/embed/wzhzkKccBi8" allowfullscreen=""></iframe>
+                                            </div>
+                                            <!--./vid -->
+                                        </div>
+                                    </div>
+                                    <!-- Carousel nav -->
+                                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-danger"  style="margin-left: 15%; font-size:30px; height: 50px;"><a href="/register"> Register Now </a></button>
+
+                <!--/Slider-->
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="../../../assets/js/jquery.min.js"></script>
+<script src="../../../assets/js/jquery-2.1.4.js"></script>
+<script src="../../../assets/js/jquery.dropotron.min.js"></script>
+<script src="../../../assets/js/jquery.scrolly.min.js"></script>
+<script src="../../../assets/js/jquery.onvisible.min.js"></script>
+<script src="../../../assets/js/skel.min.js"></script>
+<script src="../../../assets/js/util.js"></script>
+<script src="../../../assets/js/searchEngine.js"></script>
+<script src="../../../assets/js/main.js"></script>

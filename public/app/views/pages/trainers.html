@@ -1,0 +1,579 @@
+
+    <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/css/Gym.css" />
+    <link rel="stylesheet" href="../../../assets/css/reviews.css" />
+    <link rel="stylesheet" href="../../../assets/css/calendar.css" />
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../../../assets/css/chatWindowOwner.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <script>
+        $(document).ready(function() {
+        $('.opening-hours li').eq(new Date().getDay()).addClass('today');
+        });
+    </script>
+<style>
+
+.chatnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.chatnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.chatnav a:hover{
+    color: #f1f1f1;
+}
+
+.chatnav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .chatnav {padding-top: 15px;}
+  .chatnav a {font-size: 18px;}
+}
+
+.searchnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.searchnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.searchnav a:hover{
+    color: #f1f1f1;
+}
+
+.searchnav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .searchnav {padding-top: 15px;}
+  .searchnav a {font-size: 18px;}
+}
+
+.notificationnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.notificationnav a {
+    color: #C96666;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.notificationnav a:hover{
+    color: #fff;
+}
+
+.notificationnav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .notificationnav {padding-top: 15px;}
+  .notificationnav a {font-size: 18px;}
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+<style>
+input[type=text] {
+    width: 20%;
+    height: 50px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 30px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 60%;
+}
+</style>
+
+<div id="myChatSidenav" class="chatnav">
+  <a ng-click="toggleChat()" href="javascript:void(0)" class="closebtn" onclick="closeChatNav()">&times;</a>
+  <div class="chat_window1" id="chat" >
+    <div class="top_menu1">
+        <div class="title1">CHAT</div>
+    </div>
+    <div class="online1">
+<h1 style="margin-top: 30px; margin-bottom: 30px; font-size:16.6px;font-family:sans-serif; font-weight:normal;color:#808080">ONLINE USERS
+</h1>
+</br>
+
+  <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+    <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+      <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+</div>
+    <ul class="messages1">
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hello!</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+    </ul>
+    <div class="bottom1_wrapper1 clearfix1">
+        <div class="message1_input1_wrapper1">
+            <input class="message1_input1" placeholder="Type your message here..." />
+        </div>
+        <div class="send1_message1">
+            <div class="text1">SEND</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="mySearchSidenav" class="searchnav">
+  <a ng-click="toggleSearch()" href="javascript:void(0)" class="closebtn" onclick="closeSearchNav()">&times;</a>
+<form>
+  <input type="text" name="search" placeholder="Search.." style="background: #333; border-radius: 20px;">
+</form>
+</div>
+
+<div id="myNotificationSidenav" class="notificationnav">
+  <a ng-click="toggleNotification()" href="javascript:void(0)" class="closebtn" onclick="closeNotificationNav()">&times;</a>
+<ul style="cursor: pointer; color: #888; line-height: 3rem; font-size: 1.5rem;">
+  <li>
+    <a style=" font-size: 1.25rem;">
+    Coach Arnold says Hi!
+    <a>
+  </li>
+  <li>
+    <a style=" font-size: 1.25rem;">
+    Coach Arnold says Hi!
+    <a>
+  </li>
+  <li>
+    <a style=" font-size: 1.25rem;">
+    Coach Arnold says Hi!
+    <a>
+  </li>
+</ul>
+</div>
+
+<div id="mySidenav" class="sidenav" ng-hide="notification">
+  <a ng-click="toggleHam()" ng-hide="search || chat"  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <ul>
+    <li><a href = "/">Home</a></li>
+    <li ng-click="toggleSearch()" ng-hide="search" style="cursor:pointer" onclick="openSearchNav()">Search</li>
+
+    <li ng-click="toggleNotification()" ng-hide="notification" style="cursor:pointer" onclick="openNotificationNav()">
+      <span class="badge badge-notify" style="background:#C96666;position:absolute; margin-left:140px;">3</span>
+        Notifications
+    </li>
+
+    <li ng-show="main.logged"><a href="javascript:void(0)" ng-click="main.goToProfile()"><span>My Profile</span></a></li>
+    <li ng-click="toggleChat()" ng-hide="chat" style="cursor:pointer" onclick="openChatNav()">Chat</li>
+    <li><a href = "/videos">Videos</a></li>
+    <li><a href = "/contactUs">Contact Us</a></li>
+    <li><a href = "/about">about</a></li>
+    <li><a href = "/faqs">FAQs</a></li>
+      <li ng-show="main.logged"><a href="/" ng-click="main.logout()">Sign Out</a></li>
+    <li ng-hide="main.logged"><a href="/register">Sign Up</a></li>
+    <li ng-hide="main.logged"><a href="/login">Sign In</a></li>
+
+  </ul>
+</div>
+<div id="main">
+
+    <div id="wrapper">
+    <!-- Sidebar -->
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper" >
+            <a class="btn btn-block btn-success" style="width: 10%; line-height: 400%; margin-left: 45%"  href="/GymHomepage">Go Back</a>
+            <button href="#" ng-hide="ham" ng-click="toggleHam()" style="background: transparent;" onclick="openNav()" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+              <span class="badge badge-notify" style="background:#C96666;position:relative;margin-left:27px;margin-bottom:20px;">3</span>
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <div class="wrapper style1" style="margin-top:-200px;  padding:250px;">
+                <header class="trainers" style="text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                <p><!--[-->Trainers<!--]--></p>
+                <hr />
+                </header>
+                <div id="scroll">
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xample</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Hamada</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xerox</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xover</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="snip1336">
+                        <img style="max-width: 250px; max-height: 300px;" src="../../../images/ownerCoverPic.jpg" alt="sample87" />
+                        <figcaption>
+                            <img src="../../../images/ownerPic.jpg" alt="profile-sample4" class="profile" />
+                            <h2>Name<span>Xittt</span></h2>
+                            <p>info</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+function openSearchNav() {
+    document.getElementById("mySearchSidenav").style.width = "100%";
+}
+
+function closeSearchNav() {
+    document.getElementById("mySearchSidenav").style.width = "0";
+}
+function openChatNav() {
+    document.getElementById("myChatSidenav").style.width = "100%";
+}
+
+function closeChatNav() {
+    document.getElementById("myChatSidenav").style.width = "0";
+}
+function openNotificationNav() {
+    document.getElementById("myNotificationSidenav").style.width = "13.75%";
+}
+
+function closeNotificationNav() {
+    document.getElementById("myNotificationSidenav").style.width = "0";
+}
+</script>
+     

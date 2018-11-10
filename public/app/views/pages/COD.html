@@ -1,0 +1,200 @@
+
+<link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../assets/css/Gym.css" />
+<link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+<link rel="stylesheet" href="../../../assets/css/searchEnginenav.css">
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../assets/css/myCart.css">
+
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div ng-show="show">
+<div id="wrapper">
+  <!-- Sidebar -->
+      <!-- <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+          <ul class="nav sidebar-nav">
+              <li class="sidebar-brand">
+                  <a href="#">
+                     Menu
+                  </a>
+              </li>
+              <li>
+                  <a href="/">Welcome Page</a>
+              </li>
+              <li>
+                  <a href="/userProfile">My Profile</a>
+              </li>
+              <li>
+                  <a href="https://www.bodybuilding.com">Entity Website</a>
+              </li>
+              <li>
+                  <a href="#">Logout</a>
+              </li>
+              <li>
+                  <a href="#search">Search</a>
+              </li>
+              <li>
+                  <div id="search">
+                      <button type="button" class="close">×</button>
+                      <form>
+                          <input style="width: 76%" type="search" value="" placeholder="type keyword(s) here" />
+                          <button type="submit" class="btn btn-success">Search</button>
+                      </form>
+                  </div>
+              </li>
+          </ul>
+      </nav> -->
+      <div id="page-content-wrapper" >
+        <button href="#" style="background: transparent;" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+      <div class="cart-body">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12 col-md-10 col-md-offset-1">
+                  <table class="table table-hover">
+                      <thead>
+                          <tr>
+                              <th>Product</th>
+                              <th>Quantity</th>
+                              <th class="text-center">Price</th>
+                              <th class="text-center">Total</th>
+                              <th> </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="item in cart.cart">
+                              <td class="col-sm-8 col-md-6">
+                              <div class="media">
+                                  <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                                  <div class="media-body">
+                                      <h4 class="media-heading"><strong>{{item.item.product.productName}}</strong></h4>
+                                      <h5 class="media-heading">By <strong>{{item.item.orgName}}</strong></h5>
+                                      <span>Status: </span><span class="text-success"><strong>In Stock {{item.item.product.quantity}}</strong></span>
+                                  </div>
+                              </div></td>
+                              <td class="col-sm-1 col-md-1" style="text-align: center">
+                              {{item.quantity}}
+                              </td>
+                              <td class="col-sm-1 col-md-1 text-center"><strong>${{item.item.product.price}}</strong></td>
+                              <td class="col-sm-1 col-md-1 text-center"><strong>{{item.quantity*item.item.product.price}}</strong></td>
+                              <td class="col-sm-1 col-md-1">
+
+                          </tr>
+                          <tr>
+                              <td>   </td>
+                              <td>   </td>
+                              <td>   </td>
+                              <td><h3>Total</h3></td>
+                              <td class="text-right"><h3><strong>${{cart.total}}</strong></h3></td>
+                          </tr>
+
+                      </tbody>
+                  </table>
+
+
+              </div>
+
+          </div>
+
+
+
+      </div>
+      <!-- wallet -->
+<br></br>
+
+
+      <div class="container">
+
+      <div class="row">
+        <table class="table table-hover">
+          <thead>
+                                    <tr>
+                                        <th>Cash On Delivery</th>
+                                    </tr>
+                                </thead>
+            <tbody>
+
+              <tr>
+
+                  <td><h5>&nbsp;&nbsp;&nbsp;Estimated Date of Arrival</h5></td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td class="text-right" style="text-align: right;"><h5 ><strong> 2 working days  &nbsp; &nbsp;</strong></h5></td>
+              </tr>
+              <tr>
+
+                  <td><h5>&nbsp;&nbsp;&nbsp;To Be Paid</h5></td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td> &nbsp; </td>
+                  <td class="text-right" style="text-align: right;"><h5 ><strong>${{cart.total}}  &nbsp; &nbsp;</strong></h5></td>
+              </tr>
+
+                <tr>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+
+
+                    <td style="width: 18%">
+
+                    <button style="padding-right:30px;" type="button" class="btn btn-primary" ng-click="purchase(cart.c)">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Confirm
+                    </button></td>
+
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+
+    <br></br>
+
+
+
+        </div>
+      </div>
+      </div>
+      </div>
+      <script src="../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/jquery.min.js"></script>
+      <!-- <script src="../../../assets/js/jquery-2.1.4.js"></script> -->
+      <script src="../../../assets/js/jquery.dropotron.min.js"></script>
+      <script src="../../../assets/js/jquery.scrolly.min.js"></script>
+      <script src="../../../assets/js/jquery.onvisible.min.js"></script>
+      <script src="../../../assets/js/skel.min.js"></script>
+      <script src="../../../assets/js/util.js"></script>
+      <script src="../../../assets/js/searchEngine.js"></script>
+      <script src="../../../assets/js/main.js"></script>

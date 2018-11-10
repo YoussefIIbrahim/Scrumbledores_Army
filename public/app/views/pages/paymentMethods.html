@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+<link rel="stylesheet" href="../../../assets/css/paymentMethods.min.css">
+<link rel="stylesheet" href="../../../assets/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../assets/css/form-elements.css">
+<link rel="stylesheet" href="../../../assets/css/paymentMethods.css">
+<!-- Content -->
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div ng-show= "show">
+
+<div class="top-content">
+<p style="font-weight: 500; font-size: 6em; margin-top: 1em;"> Payment Methods</p>
+
+    <div class="inner-bg">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1 style="font-size: 2em"><strong>Fithub </strong>gives you two options for payment</h1>
+                    <div class="description">
+                      <p style="font-size: 2em;">
+                        You can now pay through <i>My Wallet</i>, or simply use the traditional Cash On Delivery!
+                      </p>
+                    </div>
+                    <div class="top-big-link">
+                      <a style="margin-right: 5%" class="btn btn-link-1 launch-modal" ng-click = "setCash()" href="#" data-modal-id="modal-login">Cash On Delivery</a>
+                        <a style="margin-left: 5%" class="btn btn-link-1 launch-modal" ng-click = "setWallet();" href="#" data-modal-id="modal-login">My Wallet</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<a style="font-size: 1.25em; width: 150px; height: 50px;" class="btn btn-primary" href="#">Homepage</a>
+
+
+<!-- MODAL -->
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h3 class="modal-title" id="modal-login-label">Login to our site</h3>
+        <p>Enter your username and password to log on:</p>
+      </div>
+
+      <div class="modal-body">
+
+              <form role="form" action="" method="post" class="login-form">
+                <div class="form-group">
+                  <label class="sr-only" for="form-username">Username</label>
+                    <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="form-password">Password</label>
+                    <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Next</button>
+              </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- Javascript -->
+<script src="../../../assets/js/jquery-1.11.1.min.js"></script>
+<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="../../../assets/js/jquery.backstretch.min.js"></script>
+<script src="../../../assets/js/scripts.js"></script>

@@ -1,0 +1,136 @@
+<link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+<link rel="stylesheet" href="../../../assets/css/style.css"> <!-- Resource style -->
+<link rel="stylesheet" type="text/css" href="../../../assets/css/login.css">
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+<script src="../../../assets/js/jquery.min.js"></script>
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div ng-show="show">
+
+
+  <div class="center">
+    <p>
+      </p><div class="input-group">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+          <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+      </div>
+    <p></p>
+    <p>
+      </p><div class="input-group">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+          <input type="text" name="quant[2]" class="form-control input-number" value="10" min="1" max="100">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+      </div>
+	<p></p>
+</div>
+<div class="login-wrap" style="background:url(../../../images/5a.png) no-repeat center;">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in-user"><label for="tab-2" class="tab">Add Product</label>
+        <form ng-submit="addProduct()">
+        <div class="login-form">
+            <div class="edit-user-htm">
+                <div class="group">
+                    <label for="stitle" class="label">Product Name</label>
+                    <input id="stitle" type="text" class="input" ng-model="product.productName" required>
+                </div>
+                <div class="group">
+                    <label for="description" class="label">Product ID</label>
+                    <input id="description" type="text" class="input" ng-model="product.productID" required>
+                </div>
+                <div class="group">
+                    <label for="capacity" class="label">Price</label>
+                    <input id="capacity" type="text" class="input" ng-model="product.price" required>
+                </div>
+                <div class="group">
+                    <label class="label">Quantity</label>
+                    <div id='myform' action='#'>
+                      <input type='button' value='-' class='qtyminus btn btn-danger' ng-click = " product.quantity=product.quantity -1" />
+                      <input type='number' ng-init= '0' class='qty' ng-model="product.quantity" min='0' required />
+                      <input type='button' value='+' class='qtyplus btn btn-success' ng-click= "product.quantity=product.quantity +1" />
+                    </div>
+                </div>
+                <br><br>
+                <div class="group">
+                    <input type="submit" class="button" value="ADD">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+<script>
+
+jQuery(document).ready(function(){
+    // This button will increment the value
+    $('.qtyplus').click(function(e){
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        fieldName = $(this).attr('field');
+        // Get its current value
+        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        // If is not undefined
+        if (!isNaN(currentVal)) {
+            // Increment
+            $('input[name='+fieldName+']').val(currentVal + 1);
+        } else {
+            // Otherwise put a 0 there
+            $('input[name='+fieldName+']').val(0);
+        }
+    });
+    // This button will decrement the value till 0
+    $(".qtyminus").click(function(e) {
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        fieldName = $(this).attr('field');
+        // Get its current value
+        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        // If it isn't undefined or its greater than 0
+        if (!isNaN(currentVal) && currentVal > 0) {
+            // Decrement one
+            $('input[name='+fieldName+']').val(currentVal - 1);
+        } else {
+            // Otherwise put a 0 there
+            $('input[name='+fieldName+']').val(0);
+        }
+    });
+});
+
+
+</script>

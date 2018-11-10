@@ -1,0 +1,301 @@
+
+    <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/css/Gym.css" />
+    <link rel="stylesheet" href="../../../assets/css/reviews.css" />
+
+    <link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+    <link rel="stylesheet" href="../../../assets/css/calendar.css" />
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../../assets/css/chatWindowOwner.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <script>
+        $(document).ready(function() {
+        $('.opening-hours li').eq(new Date().getDay()).addClass('today');
+        });
+    </script>
+<style>
+
+.chatnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(7, 19, 13, 0.99);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.chatnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.chatnav a:hover{
+    color: #f1f1f1;
+}
+
+.chatnav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .chatnav {padding-top: 15px;}
+  .chatnav a {font-size: 18px;}
+}
+
+.notificationnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(7, 19, 13, 0.99);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.notificationnav a {
+    color: #C96666;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.notificationnav a:hover{
+    color: #fff;
+}
+
+.notificationnav .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .notificationnav {padding-top: 15px;}
+  .notificationnav a {font-size: 18px;}
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(7, 19, 13, 0.99);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+<style>
+input[type=text] {
+    width: 20%;
+    height: 50px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 30px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 60%;
+}
+</style>
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div ng-show="show">
+
+
+
+
+
+<div id="myNotificationSidenav" class="notificationnav">
+<a ng-click="toggleNotification()" href="javascript:void(0)" class="closebtn" onclick="closeNotificationNav()">&times;</a>
+<ul style="cursor: pointer; color: #888; line-height: 3rem; font-size: 1.5rem;">
+<li ng-repeat = "notification in main.myProfile.profile.notifications">
+<a style=" font-size: 1.25rem;">
+{{notification.notification}}
+<a>
+</li>
+
+</ul>
+</div>
+
+<div id="mySidenav" class="sidenav" ng-hide="notification">
+<a ng-click="toggleHam()" ng-hide="search || chat"  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<ul>
+<li><a href = "/">Home</a></li>
+
+<li ng-show="logged" ng-click="toggleNotification(); main.notificationnumber =0;" style="cursor:pointer" onclick="openNotificationNav()">
+  <span class="badge badge-notify" style="background:#C96666;position:absolute; margin-left:140px;">{{main.notificationnumber}}</span>
+    Notifications
+</li>
+
+<li ng-show="logged" ><a href="javascript:void(0)" ng-click="main.goToProfile()"><span>My Profile</span></a></li>
+<li><a href = "/videos">Videos</a></li>
+<li><a href = "/contactUs">Contact Us</a></li>
+<li><a href = "/about">About</a></li>
+<li><a href = "/faqs">FAQs</a></li>
+  <li ng-show="logged"><a href="/" ng-click="main.logout()">Sign Out</a></li>
+<li ng-hide="logged"><a href="/register">Sign Up</a></li>
+<li ng-hide="logged"><a href="/login">Sign In</a></li>
+
+</ul>
+</div>
+<div id="main">
+    <div id="wrapper">
+        <div id="page-content-wrapper" >
+            <button href="#" ng-hide="ham" ng-click="toggleHam()" style="background: transparent;" onclick="openNav()" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+              <span class="badge badge-notify" style="background:#C96666;position:relative;margin-left:27px;margin-bottom:20px;">{{main.notificationnumber}}</span>
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <div class="container" id="products">
+                <header class="products" style="text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                    <p><!--[-->Products<!--]--></p>
+                                <hr />
+                </header>
+                <div id="portfolio" class="row" style="margin-left:10%">
+                    <div class="span3" style="margin-bottom:20px;" ng-repeat="product in products">
+                        <div class="thumbnail">
+                            <img src="../../../images/p1.png">
+                            <div class="caption">
+                                <strong style="color:#888">Product Name: <p ng-hide="isEditable" style="font-size:1.25rem; color:#14ad8f;">{{product.productName}}</p></strong>
+                                <textarea ng-show="isEditable" ng-model="product.productName"></textarea>
+                                <strong style="color:#888">Product ID: <p style="font-size:1.25rem; color:#14ad8f;">{{product.productID}}</p></strong>
+
+                                <strong style="color:#888">Product Price: <p ng-hide="isEditable" style="font-size:1.25rem; color:#14ad8f;">{{product.price}}</p></strong>
+                                <textarea ng-show="isEditable" ng-model="product.price"></textarea>
+                                <strong style="color:#888">Product Quantity: <p ng-hide="isEditable" style="font-size:1.25rem; color:#14ad8f;">{{product.quantity}}</p></strong>
+                                <input type='number'  ng-show="isEditable"  ng-init= '0'  ng-model="product.quantity" min='0' required />
+                                <div class="row-fluid">
+                                    <div class="span6">
+                                        <a class="btn btn-block btn-danger" ng-click="deleteProduct(product._id)"><i class="icon-info-sign" ng-show="isOwner" ></i>Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a ng-click="toggleEditable()" ng-show="showEdit" style="font-size:1.5rem; width:50%; margin-bottom:5%; margin-left:25%;" class="btn btn-block btn-primary" href="#" ><i class="icon-shopping-cart"></i>Edit</a>
+            <a class="btn btn-block btn-success" style="width: 10%; line-height: 400%; float:left"  href="/GymHomepage">Go Back</a>
+            <a class="btn btn-block btn-primary" style="width: 10%; line-height: 400%; float:right"  href="/addProducts">Add Products</a>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+
+function openChatNav() {
+    document.getElementById("myChatSidenav").style.width = "100%";
+}
+
+function closeChatNav() {
+    document.getElementById("myChatSidenav").style.width = "0";
+}
+function openNotificationNav() {
+    document.getElementById("myNotificationSidenav").style.width = "13.75%";
+}
+
+function closeNotificationNav() {
+    document.getElementById("myNotificationSidenav").style.width = "0";
+}
+</script>

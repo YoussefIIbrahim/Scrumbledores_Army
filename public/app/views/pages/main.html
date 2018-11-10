@@ -1,0 +1,282 @@
+
+
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../assets/css/reset.css">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/searchEngine.css">
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+
+
+
+
+<style type="text/css">
+        .toolbar ul {
+            display:table-row;
+        }
+        .toolbar ul li
+        {
+            display: table-cell;
+            height: 100px;
+            list-style-type: none;
+            margin: 10px;
+            vertical-align: middle;
+        }
+        .toolbar ul li a {
+            display:table-cell;
+            vertical-align: middle;
+            height:100px;
+            border: solid 1px black;
+        }
+        .toolbar ul li.button a {
+            height:50px;
+            border: solid 1px black;
+        }
+    </style>
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+
+    <!-- <script  src="../../assets/js/jquery-2.1.4.js"></script> -->
+    <div class="demo" ng-hide = "show">
+      <div id="demo-content">
+
+        <div id="loader-wrapper">
+          <div id="loader"></div>
+
+          <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+
+        </div>
+
+      </div>
+  </div>
+
+<div class="everything" id = "everything" ng-show = "show">
+  <nav class="cd-stretchy-nav" id = "cd-stretchy-nav">
+        <a class="cd-nav-trigger" ng-click = "main.showList = true " >
+            <span aria-hidden="true"></span>
+        </a>
+        <ul ng-show = "main.showList">
+            <li><a href="#" class="active"><span>HomePage</span></a></li>
+            <li ng-hide="logged"><a href="/register"><span>Sign Up</span></a></li>
+            <li ng-hide="logged"><a href="/login"><span>Sign In</span></a></li>
+            <li ng-show="logged"><a href="/" ng-click="main.logout()"><span>Sign Out</span></a></li>
+            <li ng-show="logged&&!isAdmin"><a href="javascript:void(0)" ng-click="goToProfile()"><span>My Profile</span></a></li>
+             <li><a href="/videos"><span>Videos</span></a></li>
+            <li><a href="/faqs"><span>FAQs</span></a></li>
+            <li><a href="/contactUs"><span>Contact Us</span></a></li>
+            <li><a href="/about"><span>About us</span></a></li>
+            <li><a href="#search" class="button1 circled scrolly" >Search</a></li>
+
+        </ul>
+        <span aria-hidden="true" class="stretchy-nav-bg"></span>
+    </nav>
+
+    <!-- Header -->
+    <div id="header">
+
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <h1><a href="/" id="logo">FitHub</a></h1>
+                <hr />
+                <p>
+                    <!--[-->CONQUER
+                    <!--]-->
+                </p>
+            </header>
+            <footer>
+                <a href="#abanner" class="button circled scrolly">Start</a>
+            </footer>
+        </div>
+
+    </div>
+    <div id="search" style = "height:70%">
+        <form ng-submit="searchBusiness()">
+            <input type="search" ng-model="main.query"  ng-keyup="searchBusiness()" placeholder="type keyword(s) here , esc to close" />
+            <div style= "width:100%">
+            </div>
+
+        </form>
+          <ul class="row" style="margin-top:20%; color:#fff; margin-left:0%; background:transparent; width:60%;">
+
+              <li ng-repeat="result in searchResult" style="position: relative; margin-top: 0%;" >
+              <a style="cursor:pointer; font-size:2rem; font-weight:300 " ng-click="setSelected(result)">  {{result.organizationName}} </a>
+              </li>
+
+          </ul>
+    </div>
+    <section class="carousel" >
+        <div class="announcements">
+            <section id="abanner">
+                <header>
+                    <p>
+                        <!--[-->Announcements
+                        <!--]-->
+                    </p>
+                    <hr />
+                </header>
+            </section>
+        </div>
+        <div class="reel">
+
+            <article ng-repeat = "announcement in announcements">
+                <a href="#" class="image featured"><img style="max-height: 280px; margin-top : 30px;"src="../../HomeAnnouncements/{{announcement._id}}" alt="" /></a>
+
+                <p>{{announcement.body}}</p>
+            </article>
+
+
+        </div>
+    </section>
+
+    <div class="wrapper style1 ">
+        <div class="categories">
+            <section id="cbanner">
+                <header>
+                    <p>
+                        <!--[-->Categories
+                        <!--]-->
+                    </p>
+                    <hr />
+                </header>
+            </section>
+        </div>
+        <div style="font-size:2rem;" class="crow">
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div style="width:700px; height:400px;" class="thumbnail">
+                    <div class="caption">
+                        <h1 style="margin-top:-50px; font-size: 3rem; font-weight:500; color: #fff;">GYM</h1>
+                        <br>
+                        <a style="padding:0; text-align:center" href="javascript:void(0)" class="button circled scrolly" ng-click = "selectCategory('Gyms')" >Explore</a>
+                    </div>
+                    <img style="width:700px; height:400px;" src="../../images/giphy 20.gif" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div style="width:700px; height:400px;" class="thumbnail">
+                    <div class="caption">
+                        <h1 style="margin-top:-75px; font-size: 3rem; font-weight:500; color: #fff;">Dance Classes</h1>
+                        <br>
+                        <a style="padding:0; text-align:center" href="javascript:void(0)" class="button circled scrolly" ng-click = "selectCategory('Dance Classes')" >Explore</a>
+                    </div>
+                    <img style="width:700px; height:400px;" src="../../images/dancing.gif" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div style="width:700px; height:400px;" class="thumbnail">
+                    <div class="caption">
+                        <h1 style="margin-top:-75px; font-size: 3rem; font-weight:500; color: #fff;">Personal Trainer</h1>
+                        <br>
+                        <a style="padding:0; text-align:center" href="javascript:void(0)" class="button circled scrolly"  ng-click = "selectCategory('Personal Trainer')" >Explore</a>
+                    </div>
+                    <img style="width:700px; height:400px;" src="../../images/trainer.gif" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div style="width:700px; height:400px;" class="thumbnail">
+                    <div class="caption">
+                        <h1 style="margin-top:-75px; font-size: 3rem; font-weight:500; color: #fff;">Yoga And Meditation</h1>
+                        <br>
+                        <a style="padding:0; text-align:center" href="javascript:void(0)" class="button circled scrolly"  ng-click = "selectCategory('Yoga and Meditation')">Explore</a>
+                    </div>
+                    <img style="width:7700px; height:400px;" src="../../images/yoga.gif" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div style="width:700px; height:400px;" class="thumbnail">
+                    <div class="caption">
+                        <h1 style="margin-top:-50px; font-size: 3rem; font-weight:500; color: #fff;">Crossfit</h1>
+                        <br>
+                        <a style="padding:0; text-align:center" href="javascript:void(0)" class="button circled scrolly"  ng-click = "selectCategory('Crossfit')">Explore</a>
+                    </div>
+                    <img style="width:700px; height:400px;" src="../../images/crossfit.gif" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div style="width:700px; height:400px;" class="thumbnail">
+                    <div class="caption">
+                        <h1 style="margin-top:-50px; font-size: 3rem; font-weight:500; color: #fff;">Martial Arts</h1>
+                        <br>
+                        <a style="padding:0; text-align:center" href="javascript:void(0)" class="button circled scrolly"  ng-click = "selectCategory('Martial Arts')" >Explore</a>
+                    </div>
+                    <img style="width:100%; height:400px;" src="../../images/martial arts.gif" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div style="width:700px; height:400px;"class="thumbnail">
+                    <div class="caption">
+                        <h1 style="margin-top:-50px; font-size: 3rem; font-weight:500; color: #fff;">Cardio</h1>
+                        <br>
+                        <a style="padding:0; text-align:center" href="javascript:void(0)" class="button circled scrolly"  ng-click = "selectCategory('Cardio')" >Explore</a>
+                    </div>
+                    <img style="width:700px; height:400px;" src="../../images/giphy 2.gif" alt="...">
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div style="width:700px; height:400px;" class="thumbnail">
+                    <div class="caption">
+                        <h1 style="margin-top:-50px; font-size: 3rem; font-weight:500; color: #fff;">Other</h1>
+                        <br>
+                        <a style="padding:0; text-align:center" href="javascript:void(0)" class="button circled scrolly"  ng-click = "selectCategory('Other')">Explore</a>
+                    </div>
+                    <img style="width:700px; height:400px;" src="../../images/boxing.gif" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <section id="sbanner" class="special hovering">
+                <header>
+                    <p>Our Partners</p>
+                    <hr/>
+                </header>
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../images/s1.png" width="80%" height="80%" /></div>
+                    <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../images/s2.png" width="80%" height="80%" /></div>
+                    <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../images/s5.png" width="80%" height="80%" /></div>
+                    <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../images/s6.png" width="80%" height="80%" /></div>
+                    <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../images/s8.png" width="80%" height="80%" /></div>
+                    <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../images/s10.png" width="80%" height="80%" /></div>
+                    <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../images/s13.png" width="80%" height="80%" /></div>
+
+                </div>
+            </section>
+        </div>
+        <section class="contact">
+            <header>
+                <h2 style="font-size:2rem;">Want to know more about our team?</h2>
+                <br>
+            </header>
+            <p style="font-size:1rem;">We are Scrumbledore's Army, a team of undergraduates in the <a href="http://www.guc.edu.eg"><strong>German University in Cairo (GUC)</strong></a>.</br>This web application was designed to facilitate the process of finding the most suitable
+                fitness program for everyone out there.<br>Visit our <a href="/about"><strong>page</strong></a> if you want to know more about us.</p>
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+                <li><a href="#" class="icon fa-github"><span class="label">Dribbble</span></a></li>
+            </ul>
+        </section>
+        <div class="copyright">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design: <a href="/about">Scrumbledore's Army</a></li>
+            </ul>
+        </div>
+        <!-- <div id=”advt” class=”advt”>
+            <button type="button" class="btn btn-box-tool" id=”closeadvt” data-widget="remove"><i class="fa fa-times"></i></button>
+            <div id="ad" style="width:100%; height: 5%">
+                <iframe src="https://www.fast.com/" border="0" scrolling="no" allowtransparency="true" width="100%" height="100%" style="border:0; ">
+                           			               	</iframe>
+            </div>
+        </div> -->
+    </div>
+
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
+</div>
+
+<script  src="../../assets/js/main.js"></script>
+<script  src="../../assets/js/searchEngine.js"></script>

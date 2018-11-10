@@ -1,0 +1,94 @@
+
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+<link rel="stylesheet" type="text/css" href="../../../assets/css/login.css">
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div ng-show = "show">
+
+<form ng-submit = "EOPCtrl.profile()" >
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in-owner"><label for="tab-2" class="tab">Edit Profile</label>
+        <div class="login-form">
+            <div class="edit-owner-htm">
+              <div class="group">
+                  <label for="oname" class="label">Owner Name</label>
+                  <input id="oname" type="text" class="input" ng-bind = "EOPCtrl.ownerProfile.profile.ownerName" ng-model = "EOPCtrl.ownerProfile.profile.ownerName" required>
+              </div>
+              <div class="group">
+                  <label for="ooname" class="label">Organization Name</label>
+                  <input id="ooname" type="text" class="input"  ng-model = "EOPCtrl.ownerProfile.profile.organizationName" required>
+              </div>
+              <div class="group">
+                  <label for="ophone" class="label">Phone Number</label>
+                  <input id="ophone" type="text" class="input"  ng-model = "EOPCtrl.ownerProfile.profile.phoneNumber" required >
+              </div>
+              <div class="group">
+                  <label for="oadd" class="label">Address</label>
+                  <input id="oadd" type="text" class="input"  ng-model = "EOPCtrl.ownerProfile.profile.address" required >
+              </div>
+              <div class="group">
+                  <label for="desc" class="label">Short Description</label>
+                  <input id="desc" type="text" class="input"  ng-model = "EOPCtrl.ownerProfile.profile.description" required>
+              </div>
+              <div class="group">
+                <label for="oadd" class="label">Choose Category</label>
+                <div class="dropdown">
+                  <button class="dropbtn">{{EOPCtrl.ownerProfile.profile.category||'Other'}}</button>
+                  <div class="dropdown-content">
+                    <a href="#" ng-click = "EOPCtrl.setCategory('Gyms')">Gym</a>
+                    <a href="#" ng-click = "EOPCtrl.setCategory('Dance Classes')">Dance Classes</a>
+                    <a href="#" ng-click = "EOPCtrl.setCategory('Personal Trainer')">Personal Trainer</a>
+                    <a href="#" ng-click = "EOPCtrl.setCategory('Yoga and Meditation')">Yoga and Meditation</a>
+                    <a href="#" ng-click = "EOPCtrl.setCategory('Crossfit')">Crossfit</a>
+                    <a href="#" ng-click = "EOPCtrl.setCategory('Martial Arts')">Martial Arts</a>
+                    <a href="#" ng-click = "EOPCtrl.setCategory('Other')">Other</a>
+
+                  </div>
+                </div>
+              </div>
+              <div class="group">
+                  <label for="web" class="label">Website</label>
+                  <input id="web" type="text" class="input" ng-model = "EOPCtrl.ownerProfile.profile.website" required>
+              </div>
+              <div class="group">
+                  <label for="ppic" class="label">Profile Picture</label>
+                    <input class="input" type="file" file-model="OwnerProfilePicture"/>
+              </div>
+              <div class="group">
+                  <label for="cover" class="label">Cover Photo</label>
+                    <input class="input" type="file" file-model="OwnerCoverPhoto"/>
+              </div>
+              <div class="foot-lnk">
+                  <a href="/changePassword">Change Password</a>
+              </div>
+              <br></br>
+              <div class="foot-lnk">
+                  <a >Looks good?</a>
+              </div>
+
+              <br></br>
+              <div class="group">
+                  <input type="submit" class="button" value="Save">
+              </div>
+              <div class="hr"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+</div>

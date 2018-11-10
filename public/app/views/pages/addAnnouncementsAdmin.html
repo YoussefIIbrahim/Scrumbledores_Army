@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+<link rel="stylesheet" href="../../../assets/css/style.css"> <!-- Resource style -->
+<link rel="stylesheet" type="text/css" href="../../../assets/css/login.css">
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+<link rel="stylesheet" href="../../assets/css/normalize.css">
+<link rel="stylesheet" href="../../assets/css/main2.css">
+
+
+
+  <div class="demo" ng-hide = "show">
+    <div id="demo-content">
+
+      <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+              <div class="loader-section section-right"></div>
+
+      </div>
+
+    </div>
+</div>
+<div class="login-wrap" style="background:url(../../../images/5a.png) no-repeat center;" ng-show="show">
+
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in-owner"><label for="tab-2" class="tab">Add Admin Announcement</label>
+        <div class="login-form">
+            <div class="edit-user-htm">
+                <div class="group">
+                    <label for="newannouncement" class="label">Text</label>
+                    <input id="newannouncement" type="text" ng-model="Add.body" class="input">
+                </div>
+                <div class="group">
+                    <label for="cover" class="label">Photo</label>
+                      <input class="input" type="file" file-model="adminAnnouncementPicture"/>
+                </div>
+                <br></br>
+                <div class="group">
+                    <input type="submit" ng-click ="addAnnouncementsAdmin()" class="button" value="Add">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

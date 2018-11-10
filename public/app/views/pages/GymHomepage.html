@@ -1,0 +1,826 @@
+<link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../assets/css/styleSchedule.css">
+<link rel="stylesheet" href="../../../assets/css/Gym.css" />
+<link rel="stylesheet" href="../../../assets/css/reviews.css" />
+<link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+<link rel="stylesheet" href="../../../assets/css/reset.css">
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../../../assets/css/chatWindowOwner.css">
+<script src="../../assets/js/searchEngine.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.opening-hours li').eq(new Date().getDay()).addClass('today');
+    });
+</script>
+<style>
+.info .toppad
+{
+  margin-top:200px;
+}
+.info .col-md-offset-3 {
+    margin-left: 25%;
+}
+.info .pull-right {
+    float: right !important;
+}
+.info .col-lg-9 {
+    width: 75%;
+}
+.info .col-md-1, .info .col-md-2, .info .col-md-3, .info .col-md-4, .info .col-md-5, .info .col-md-6, .info .col-md-7, .info .col-md-8, .info .col-md-9, .info .col-md-10, .info .col-md-11, .info .col-md-12 {
+    float: left;
+}
+.info .col-lg-1, .info .col-lg-2, .info .col-lg-3, .info .col-lg-4, .info .col-lg-5, .info .col-lg-6, .info .col-lg-7, .info .col-lg-8, .info .col-lg-9, .info .col-lg-10, .info .col-lg-11, .info .col-lg-12 {
+    float: left;
+}
+.info .col-md-offset-3 {
+    margin-left: 25%;
+}
+.info .col-md-6 {
+    width: 50%;
+}
+.info .col-xs-1, .info .col-sm-1, .info .col-md-1, .info .col-lg-1, .info .col-xs-2, .info .col-sm-2, .info .col-md-2, .info .col-lg-2, .info .col-xs-3, .info .col-sm-3, .info .col-md-3, .info .col-lg-3, .info .col-xs-4, .info .col-sm-4, .info .col-md-4, .info .col-lg-4, .info .col-xs-5, .info .col-sm-5, .info .col-md-5, .info .col-lg-5, .info .col-xs-6, .info .col-sm-6, .info .col-md-6, .info .col-lg-6, .info .col-xs-7, .info .col-sm-7, .info .col-md-7, .info .col-lg-7, .info .col-xs-8, .info .info .col-sm-8, .info .col-md-8, .info .col-lg-8, .info .col-xs-9, .info .col-sm-9, .info .col-md-9, .info .col-lg-9, .info .col-xs-10, .info .col-sm-10, .info .col-md-10, .info .col-lg-10, .info .col-xs-11, .info .col-sm-11, .info .col-md-11, .info .col-lg-11, .info .col-xs-12, .info .col-sm-12, .info .col-md-12, .info .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.info .panel {
+    margin-bottom: 200px;
+    background-color: #fff;
+    border: 0px solid transparent;
+    border-radius: 30px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.info .panel-info {
+    border-color: #fff;
+}
+.info .panel-info > .info .panel-heading {
+    color: #06130E;
+    background-color: #14ad8f;
+    border-color: #bce8f1;
+}
+.info .panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+.info .panel-body {
+    padding: 15px;
+}
+.info .panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.infonav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.infonav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.infonav a:hover {
+    color: #f1f1f1;
+}
+
+.infonav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+}
+
+@media screen and (max-height: 450px) {
+    .infonav {
+        padding-top: 15px;
+    }
+    .infonav a {
+        font-size: 18px;
+    }
+}
+
+    .chatnav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        text-align: center;
+    }
+
+    .chatnav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .chatnav a:hover {
+        color: #f1f1f1;
+    }
+
+    .chatnav .closebtn {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 60px;
+        margin-left: 0px;
+        color: #14ad8f;
+    }
+
+    @media screen and (max-height: 450px) {
+        .chatnav {
+            padding-top: 15px;
+        }
+        .chatnav a {
+            font-size: 18px;
+        }
+    }
+
+
+    .notificationnav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        text-align: center;
+    }
+
+    .notificationnav a {
+        color: #C96666;
+        text-decoration: none;
+        font-size: 25px;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .notificationnav a:hover {
+        color: #fff;
+    }
+
+    .notificationnav .closebtn {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 60px;
+        margin-left: 0px;
+        color: #14ad8f;
+    }
+
+    @media screen and (max-height: 450px) {
+        .notificationnav {
+            padding-top: 15px;
+        }
+        .notificationnav a {
+            font-size: 18px;
+        }
+    }
+
+
+    body {
+        font-family: "Lato", sans-serif;
+        transition: background-color .5s;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover,
+    .offcanvas a:focus {
+        color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 60px;
+        margin-left: 0px;
+        color: #14ad8f;
+    }
+
+    #main {
+        transition: margin-left .5s;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+    .btn-chat{
+      background-color: Transparent;
+      background-repeat:no-repeat;
+      border: none;
+      cursor:pointer;
+      overflow: hidden;
+      outline:none; color: #ddd;
+    }
+    .btn-chat:hover {
+      color: #ffffff;
+    }
+</style>
+
+<style>
+    input[type=text] {
+        width: 20%;
+        height: 50px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 30px;
+        background-color: white;
+        background-image: url('searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    input[type=text]:focus {
+        width: 60%;
+    }
+</style>
+
+<div class="demo" ng-hide = "show">
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+  <!-- Demo content -->
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div ng-show = "show">
+
+
+
+<div class="row show-hide-message" ng-show="showErrMsg">
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>{{errMsg.title}}</h2>
+            <a class="close" ng-click="hideErr()">&times;</a>
+            <div class="content">
+                {{errMsg.content}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myChatSidenav" class="chatnav">
+    <a ng-click="toggleChat()" href="javascript:void(0)" class="closebtn" onclick="closeChatNav()">&times;</a>
+    <div class="chat_window1" id="chat">
+        <div class="top_menu1">
+            <div class="title1">CHAT</div>
+        </div>
+        <div class="online1">
+            <h1 style="margin-top: 30px; height:0%; margin-bottom: 30px; font-size:16.6px;font-family:sans-serif; font-weight:normal;color:#808080">ONLINE USERS
+            </h1>
+            </br>
+<div id="users">
+
+</div>
+        </div>
+        <ul class="messages1" id="messages1">
+
+        </ul>
+        <div class="bottom1_wrapper1 clearfix1">
+            <div class="message1_input1_wrapper1">
+                <input class="message1_input1" id = "message"  placeholder="Type your message here..." autocomplete="off"/>
+            </div>
+            <div class="send1_message1">
+                <div class="text1" id = "messageForm"><button class="btn-chat">SEND</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="myNotificationSidenav" class="notificationnav">
+    <a ng-click="toggleNotification()" href="javascript:void(0)" class="closebtn" onclick="closeNotificationNav()">&times;</a>
+    <ul style="cursor: pointer; color: #888; line-height: 3rem; font-size: 1.5rem;">
+        <li ng-repeat="notification in main.myProfile.profile.notifications">
+            <a style=" font-size: 1.25rem;">
+{{notification.notification}}
+<a>
+</li>
+
+</ul>
+</div>
+<div class="info">
+<div id="myInfoSidenav" class="infonav">
+    <a ng-click="toggleInfo()" href="javascript:void(0)" class="closebtn" onclick="closeInfoNav()">&times;</a>
+    <div style="width:100%; font-size:2rem; margin-top:-100px;" class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" style="margin-top:300px;">
+                <div class="panel panel-info" style="margin-bottom:300px;">
+                    <div class="panel-heading">
+                        <h3 style="margin-top:5px" class="panel-title">Information</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row" style="margin-left:75px;">
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                      <tr>
+                                          <td style="line-height:40px;"><strong>Organization</strong></td>
+                                      <td style="float:right; line-height:40px;">{{ghCtrl.business.organizationName}}</td>
+                                      </tr>
+
+                                      <tr>
+                                          <td style="line-height:40px;"><strong>Address</strong></td>
+                                          <td style="float:right; line-height:40px;">{{ghCtrl.business.address}}</td>
+                                      </tr>
+
+                                      <tr>
+                                          <td style="line-height:40px;"><strong>Phone Number</strong></td>
+                                          <td style="float:right; line-height:40px;">{{ghCtrl.business.phoneNumber}}</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="line-height:40px;"><strong>Description</strong></td>
+                                          <td style="float:right; line-height:40px;">{{ghCtrl.business.description}}</td>
+                                      </tr>
+                                      <tr>
+                                          <td style="line-height:40px;"><strong>Website</strong></td>
+                                          <td style="float:right; line-height:40px;">{{ghCtrl.business.website}}</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id="mySidenav" class="sidenav" ng-hide="notification">
+<a ng-click="toggleHam()" ng-hide="search || chat || info"  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <ul>
+                <li><a href="/">Home</a></li>
+
+                <li ng-show="logged" ng-click="toggleNotification(); main.notificationnumber =0;" style="cursor:pointer" onclick="openNotificationNav()">
+                    <span class="badge badge-notify" style="background:#C96666;position:absolute; margin-left:140px;">{{main.notificationnumber}}</span> Notifications
+                </li>
+                <li ng-show="logged" ng-click="toggleInfo()" style="cursor:pointer" onclick="openInfoNav()"><a href="javascript:void(0)"><span>Information</span></a></li>
+                <li ng-show="logged"><a href="javascript:void(0)" ng-click="goToProfile()"><span>My Profile</span></a></li>
+                <li ng-show="logged" ng-click="toggleChat()" style="cursor:pointer" onclick="openChatNav()" id = "connect">Chat</li>
+                <li><a href="/videos">Videos</a></li>
+                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/faqs">FAQs</a></li>
+                <li ng-show="logged"><a href="/" ng-click="main.logout()">Sign Out</a></li>
+                <li ng-hide="logged"><a href="/register">Sign Up</a></li>
+                <li ng-hide="logged"><a href="/login">Sign In</a></li>
+
+            </ul>
+</div>
+<div id="main">
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button href="#" ng-hide="ham" ng-click="toggleHam()" style="background: transparent;" onclick="openNav()" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+          <span class="badge badge-notify" style="background:#C96666;position:relative;margin-left:27px;margin-bottom:20px;">{{main.notificationnumber}}</span>
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+        </button>
+            <div id="page-wrapper">
+                <div id="header" style="background-image: url('{{ghCtrl.coverPicPath}}')">
+                    <div class="inner">
+                        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+                        <div class="container">
+                            <div class="fb-profile">
+                                <img align="middle" class="fb-image-profile thumbnail" src="{{ghCtrl.profilePicPath}}" alt="Profile image example" />
+                                <div class="header">
+                                    <div class="fb-profile-text">
+                                        <h1>{{ghCtrl.business.organizationName}}</h1>
+                                        <hras>
+                                            <p style="text-align: center; font-size: 1.5em;">{{ghCtrl.business.ownerName}}</p>
+                                        </hras>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gat">
+                <section class="carousel" id="announcements">
+                    <header class="announcements" style="text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                        <p>
+                            <!--[-->Announcements
+                            <!--]-->
+                        </p>
+                        <hr />
+                    </header>
+                    <div class="reel" style=" margin-top:-100px; margin-bottom: 150px; overflow: visible; transform: translate(0px, 0px);">
+
+                        <article class="" ng-repeat="announcement in ghCtrl.business.announcements">
+                            <a href="#" class="image featured"><img src="{{ghCtrl.annPicPath}}/OwnerAnnouncement/{{announcement._id}}" alt=""></a>
+
+                            <p ng-hide="isEditable">{{announcement.body}}</p>
+                            <textarea ng-show="isEditable" ng-model="announcement.body"></textarea>
+                            <a class="btn btn-block btn-danger" ng-show="isOwner" style="width: 10%; margin-left: 85%; margin-top: 0%; margin-bottom: 100px;" ng-click="deleteAnnouncement(announcement._id);">Delete</a>
+
+                        </article>
+
+
+                    </div>
+                    <a class="btn btn-block btn-primary" ng-show="isOwner" ng-click="toggleEditable()" style="width: 30%; margin-top: -5%; margin-left: 35%; color: #06130E; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);">Edit All</a>
+                    <a class="btn btn-block btn-success" ng-show="isOwner" style="width: 30%; margin-left: 35%; color: #06130E; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);" href="/addAnnouncement">Add Announcement</a>
+
+                    <span class="forward" style="display: block;">
+            </span>
+                    <span class="backward" style="display: block;">
+            </span>
+                </section>
+                <section class="reviews-and-rating">
+                    <div id="reviews" class="wrapper style1" style="background: #06130E; margin:0;padding:250px; padding-top: 0px; padding-bottom=0px;">
+                        <header class="reviews" style="margin-bottom: -100px; margin-top: 100px; text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                            <p>
+                                <!--[-->Reviews
+                                <!--]-->
+                            </p>
+                            <hr />
+                        </header>
+
+                        <div class="container" style="margin-left: 50px;" ng-hide="isOwner">
+                            <div class="row" style="margin-top:40px;">
+                                <div class="col-md-6">
+                                    <div class="well well-sm" style="border-radius: 20px;">
+                                        <div class="text-right">
+                                            <a ng-hide="addReview" class="btn btn-success btn-green" ng-click="leaveReviews()" style="display: inline-block;">Leave a Review</a>
+                                        </div>
+
+                                        <div ng-show="addReview" class="row" id="post-review-box">
+                                            <div ng-show="addReview" class="col-md-12">
+                                                <form ng-show="addReview" accept-charset="UTF-8" action="\postReview" method="post">
+
+                                                    <input ng-hide="addReview" name="rating">
+                                                    <textarea ng-model = "myreview.review"ng-show="addReview" class="form-control animated" cols="50" name="comment" placeholder="Enter your review here..." rows="5" style="overflow: hidden; overflow-wrap:break-word; resize:horizontal; height: 60px; width: 300px; max-width: 500px;"></textarea>
+
+                                                    <div ng-show="addReview" class="text-right">
+                                                        <div ng-show="addReview">
+
+                                                            <span tabindex="0">
+                                            <span ng-repeat-start="r in range track by $index" class="sr-only">({{ $index < rate ? '*' : ' ' }})</span>
+                                                            <i ng-repeat-end  ng-click="update($index + 1)" class="glyphicon" ng-class="$index < rate ? 'glyphicon-star' : 'glyphicon-star-empty'"></i>
+                                                            </span>
+                                                        </div>
+                                                        <br>
+                                                        <a ng-show="addReview" class="btn btn-danger btn-sm" href="" id="close-review-box">
+                                                            <span ng-click="doneReviewing(false)" class="glyphicon glyphicon-remove">Cancel</span></a>
+                                                        <button ng-click="doneReviewing(true)" class="btn btn-success btn-sm" type="submit">Save</button>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="featured-clients" style="background-color: #06130E" >
+                            <div class="row">
+                              <div class="col-md-4" ng-repeat = "review in ghCtrl.business.evaluations">
+                                  <div class="client">
+                                      <header>
+                                          <div class="client-meta">
+                                              <h3 class="fn">{{review.posterID.ownerID.username}}</h3>
+
+                                              <div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">{{review.rating}}</strong> out of 5</span></div>
+                                          </div>
+                                      </header>
+                                        <p>{{review.review}}</p>
+                                  </div> <!-- .client -->
+                              </div> <!-- .col-md-4 -->
+
+
+                                <!-- .col-md-4 -->
+                            </div>
+                            <!-- .row -->
+                        </div>
+                        <!-- .featured-clients -->
+                    </div>
+                </section>
+                <section class="container1" style="background: #06130E; width:100%" >
+                    <header class="membership" style="text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                        <p>
+                            <!--[-->Memberships
+                            <!--]-->
+                        </p>
+                        <hr />
+                    </header>
+
+            </div>
+            <div class="crow1" style="margin-left: 20%; width: 60%;" >
+                <div class="col-xs-6 col-sm-41 col-md-3" style="width: 45%;" ng-repeat = "ship in ghCtrl.business.membershipOptions">
+                    <div class="thumbnail1">
+
+                      <div class="caption1">
+                            <h1 style="font-size: 20px; color: #ffffff;">Duration : {{ship.months}} Month  </h1>
+                            <h1 style="font-size: 20px; color: #ffffff;">Cost : $ {{ship.cost}} </h1>
+
+                        </div>
+                        <img src="../../../images/giphy 19.gif" alt="...">
+                    </div>
+                </div>
+            </div>
+            <!--categories-->
+            <a class="btn btn-block btn-success"  style="width: 30%; margin-right: 35%; margin-top: 3%; margin-bottom: 200px; float : right" href="/memberships">See All</a>
+            </section>
+
+            <section style="margin-top:300px;" class="container1" style="background: #06130E; width:100%">
+                <header class="sessions" style="text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                    <p>
+                        <!--[-->Sessions
+                        <!--]-->
+                    </p>
+                    <hr />
+                </header>
+
+            </div>
+            <div class="crow1" style="margin-left: 20%; width: 60%;">
+                <div class="col-xs-6 col-sm-41 col-md-3" style="width: 45%;" ng-repeat="session in ghCtrl.business.sessions">
+                    <div class="thumbnail1">
+
+                        <div class="caption1">
+                            <h1 style="font-size: 20px; color: #ffffff;">{{session.title}}</h1>
+                            <h1 style="font-size: 20px; color: #ffffff;">{{session.description}}</h1>
+                            <h1 style="font-size: 20px; color: #ffffff;">Timing: {{session.timing}}</h1>
+                            <h1 style="font-size: 20px; color: #ffffff;">Capacity: {{session.maxNumber}}</h1>
+                        </div>
+                        <img src="../../../images/giphy 20.gif" alt="...">
+                    </div>
+                </div>
+            </div>
+            <!--categories-->
+            <a class="btn btn-block btn-success"  style="width: 30%; margin-right: 35%; margin-top: 3%; margin-bottom: 100px; float : right" href="/sessions">See All</a>
+            </section>
+            <br>
+            <br>
+            <br>
+            <div class="container" id="products" style="background: #06130E;">
+                <header class="products" style="margin-top:150px; text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                    <p>
+                        <!--[-->Products
+                        <!--]-->
+                    </p>
+                    <hr />
+                </header>
+                <div id="portfolio" clas="row" style="margin-left:10%">
+                    <div class="span3" style="max-height:20%;" ng-repeat="product in ghCtrl.business.products">
+                        <div class="thumbnail">
+                            <img src="../../../images/p1.png">
+                            <div class="caption">
+                                <strong style="color:#888">Product Name: <p ng-hide="isEditable" style="font-size:1.25rem; color:#14ad8f;">{{product.productName}}</p></strong>
+                                <textarea ng-show="isEditable" ng-model="product.productName"></textarea>
+                                <strong style="color:#888">Product ID: <p style="font-size:1.25rem; color:#14ad8f;">{{product.productID}}</p></strong>
+
+                                <strong style="color:#888">Product Price: <p ng-hide="isEditable" style="font-size:1.25rem; color:#14ad8f;">{{product.price}}</p></strong>
+                                <textarea ng-show="isEditable" ng-model="product.price"></textarea>
+                                <strong style="color:#888">Product Quantity: <p ng-hide="isEditable" style="font-size:1.25rem; color:#14ad8f;">{{product.quantity}}</p></strong>
+                                <textarea ng-show="isEditable" ng-model="product.quantity"></textarea>
+                                <div class="row-fluid">
+                                    <div class="span6">
+
+                                        <a style="margin-left:50px;" class="btn btn-block btn-success"  ng-click="addProductToCart(product)" ng-show="!isOwner"><i class="icon-shopping-cart"></i>Add To Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-block btn-success" style="margin-bottom: 100px; width: 30%; margin-left: 35%" ng-show="isOwner" href="/products">See All</a>
+
+
+
+
+            <div class="container demo-bg" style="width:100% ; background: #06130E; margin:auto;">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div style="width:400%, margin-left:30%;" class="business-hours">
+                            <h2 class="title">Opening Hours</h2>
+                            <ul class="list-unstyled opening-hours">
+                                <li>Sunday <span class="pull-right">Closed</span></li>
+                                <li>Monday <span class="pull-right">9:00-22:00</span></li>
+                                <li>Tuesday <span class="pull-right">9:00-22:00</span></li>
+                                <li>Wednesday <span class="pull-right">9:00-22:00</span></li>
+                                <li>Thursday <span class="pull-right">9:00-22:00</span></li>
+                                <li>Friday <span class="pull-right">9:00-23:30</span></li>
+                                <li>Saturday <span class="pull-right">14:00-23:30</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "white";
+    }
+
+
+
+    function openChatNav() {
+        document.getElementById("myChatSidenav").style.width = "100%";
+    }
+
+    function closeChatNav() {
+        document.getElementById("myChatSidenav").style.width = "0";
+    }
+
+    function openNotificationNav() {
+        document.getElementById("myNotificationSidenav").style.width = "13.75%";
+    }
+
+    function closeNotificationNav() {
+        document.getElementById("myNotificationSidenav").style.width = "0";
+    }
+    function openInfoNav() {
+        document.getElementById("myInfoSidenav").style.width = "100%";
+    }
+
+    function closeInfoNav() {
+        document.getElementById("myInfoSidenav").style.width = "0";
+    }
+</script>
+
+<!-- <script
+src="https://code.jquery.com/jquery-3.1.1.js"
+integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+crossorigin="anonymous"></script> -->
+  <script src="/socket.io/socket.io.js"></script>
+
+<script src="../../assets/js/jquery.dropotron.min.js"></script>
+<script src="../../assets/js/jquery.scrolly.min.js"></script>
+<script src="../../assets/js/jquery.onvisible.min.js"></script>
+<script src="../../assets/js/skel.min.js"></script>
+<script src="../../assets/js/util.js"></script>
+<script>
+$(function () {
+  var socket = io.connect() ;
+  var id ;
+  var boole = true ;
+  var $messageForm = $('#messageForm');
+    var $message = $('#message');
+      var $chat = $('#messages1');
+      var $userForm = $('#userForm');
+      var $userFormArea = $('#userFormArea');
+        var $messageArea = $('#messageArea');
+        var $users = $('#users') ;
+        var $connect = $('#connect');
+        //var $username = $('#username') ;
+       $messageForm.click(function(e){
+         e.preventDefault() ;
+         var temp = {} ;
+         temp.username = window.username;
+         temp.message =  $message.val();
+         temp.id = window.businessID;
+         temp.token = window.token
+        socket.emit('send message'  , temp) ;
+        $message.val('');
+       });
+       socket.on('new',function(data){
+         data.msg = data.message;
+         if (data.id ===window.businessID){
+        if (data.username ===window.username){
+          if (data.username === window.ownerusername)
+             $chat.append('<li class="message1 right1 appeared1"><div class="text1_wrapper1"><div class="text1"><strong>'+data.username+' : </strong>'+data.msg+'</div></div></li>');
+             else
+              $chat.append('<li class="message1 right1 appeared1"><div class="text1_wrapper1"><div class="text1">'+data.username+' : '+data.msg+'</div></div></li>');
+
+        }
+
+         else {
+             if (data.username === window.ownerusername)
+                $chat.append('<li class="message1 left1 appeared1"><div class="text1_wrapper1"><div class="text1"><strong>'+data.username+' : </strong>'+data.msg+'</div></div></li>');
+           else
+           $chat.append('<li class="message1 left1 appeared1"><div class="text1_wrapper1"><div class="text1">'+data.username+' : '+data.msg+'</div></div></li>');
+
+         }
+       }
+
+     });
+
+
+$connect.click(function () {
+  console.log(window.bname);
+  console.log(window.username);
+
+  if (boole){
+    boole = false;
+  socket.emit('new user'  , {'username' : window.username, 'id' : window.bname, 'token' : window.token}, function (data) {
+            }) ;
+          }
+
+});
+
+
+
+
+       socket.on('get users' , function(data){
+         var html = '' ;
+         console.log(data);
+         console.log(window.bname);
+         for (var i=0 ; i<data.length; i++){
+           if (data[i].businessID === window.bname)
+           html += '<a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">'+data[i].username+'</a></br>' ;
+         }
+         $users.html(html);
+       });
+});
+</script>

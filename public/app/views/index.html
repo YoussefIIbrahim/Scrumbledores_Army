@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+
+<html style="background:#06130E">
+<title>FITHUB</title>
+
+<link rel="shortcut icon" href="favicon.ico" />
+
+<script   src="../../assets/js/jquery.min.js"></script>
+<script  src="../../assets/js/modernizr.js"></script>
+<link rel="stylesheet" href="../../assets/css/popup.css" />
+<link href="../../assets/css/angular-datepicker.css" rel="stylesheet" type="text/css"/>
+
+<link rel="stylesheet" href="../../assets/css/normalize.css">
+<link rel="stylesheet" href="../../assets/css/main2.css">
+<style type="text/css">
+.back-link a {
+  color: #4ca340;
+  text-decoration: none;
+  border-bottom: 1px #4ca340 solid;
+}
+.back-link a:hover,
+.back-link a:focus {
+  color: #408536;
+  text-decoration: none;
+  border-bottom: 1px #408536 solid;
+}
+
+.entry-header {
+  text-align: left;
+  margin: 0 auto 50px auto;
+  width: 80%;
+      max-width: 978px;
+  position: relative;
+  z-index: 10001;
+}
+#demo-content {
+  padding-top: 100px;
+}
+</style>
+<script  type=”text/javascript”>
+
+    window.onload = addListeners();
+
+    function addListeners() {
+        (document).getElementById('navigationBar').addEventListener('mousedown', mouseDown, false);
+        window.addEventListener('mouseup', mouseUp, false);
+
+    };
+
+    function mouseUp() {
+        window.removeEventListener('mousemove', divMove, true);
+        var div = (document).getElementById('navigationBar');
+        div.style.position = 'fixed';
+    };
+
+    function mouseDown(e) {
+        window.addEventListener('mousemove', divMove, true);
+    };
+
+    function divMove(e) {
+        var div = (document).getElementById('navigationBar');
+        div.style.position = 'absolute';
+        div.style.top = e.clientY + 'px';
+        div.style.right = e.clientX + 'px';
+    }​;
+</script>
+<head>
+
+</head>
+
+
+
+
+
+
+<body class = "body" ng-app="App" ng-controller="MainCtrl as main" ng-cloak>
+
+  <div class="demo" ng-hide = "show">
+    <div id="demo-content">
+
+      <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+              <div class="loader-section section-right"></div>
+
+      </div>
+
+    </div>
+  </div>
+
+    <div ng-view style="height: 100%">
+
+    </div>
+
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
+</body>
+
+
+<!--ANGULAR IMPORTS -->
+
+
+<script src="../../assets/js/angular.js">
+</script>
+<script src="../../assets/js/angular-route.js">
+</script>
+<script src="../../assets/js/angular-animate.js">
+</script>
+<script src="../../assets/js/angular-datepicker.js"></script>
+<script src="../../assets/js/sweetalert.min.js"></script>
+<script src="../../assets/js/SweetAlert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/css/sweetalert.css">
+
+
+<!-- APP AND ROUTES -->
+<script  src="../../app/app.js">
+</script>
+<script src="../../app/routes.js">
+</script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script src="../../assets/js/stripe-angular.js">
+</script>
+
+
+<!-- SERVICES -->
+<script src="../../app/services/Usersrv.js">
+</script>
+
+<!-- custom directives -->
+<script src ="../../app/directives/fileModel.js">
+
+</script>
+
+<!-- CONTROLLERS -->
+<script src="../../app/controllers/mainCtrl.js">
+</script>
+<script src="../../app/controllers/loginCtrl.js">
+</script>
+<script src="../../app/controllers/restorePasswordCtrl.js">
+</script>
+<script src="../../app/controllers/forgotPasswordCtrl.js">
+</script>
+<script src="../../app/controllers/editOwnerProfile.js">
+</script>
+<script src="../../app/controllers/editUserProfile.js">
+</script>
+<script src="../../app/controllers/gymHomepageCtrl.js">
+</script>
+ <script src="../../app/controllers/ownerProfileCtrl.js">
+</script>
+<script src="../../app/controllers/userProfileCtrl.js">
+</script>
+<script src="../../app/controllers/reviewsCtrl.js">
+ </script>
+ <script src="../../app/controllers/productsCtrl.js">
+</script>
+<script src="../../app/controllers/gymSum.js">
+</script>
+<script src="../../app/controllers/myCartCtrl.js">
+</script>
+<script src="../../app/controllers/dummy.js">
+</script>
+<script src="../../app/controllers/reviewsCtrl.js">
+</script>
+<script src="../../app/controllers/addAnnouncementsAdminCtrl.js">
+</script>
+<script src="../../app/controllers/addAnnouncementCtrl.js">
+</script>
+<script src="../../app/controllers/addProductCtrl.js">
+</script>
+<script src="../../app/controllers/ownerAnnouncementsCtrl.js">
+</script>
+<script src="../../app/controllers/contactUsCtrl.js">
+</script>
+<script src="../../app/controllers/adminCtrl.js">
+</script>
+<script src="../../app/controllers/addSessionCtrl.js">
+</script>
+<script src="../../app/controllers/RetrieveSessionCtrl.js">
+</script>
+<script src="../../app/controllers/clientSessionsCtrl.js">
+</script>
+<script src="../../app/controllers/editSessionCtrl.js">
+</script>
+<script src="../../app/controllers/scheduleCtrl.js">
+</script>
+<script src="../../app/controllers/membershipCtrl.js">
+</script>
+<script src="../../app/controllers/ownerOrderCtrl.js">
+</script>
+<script src="../../app/controllers/paymentMethodsCtrl.js">
+</script>
+
+<script src="../../app/controllers/aNPCtrl.js">
+</script>
+
+<script src="../../app/controllers/indexController.js">
+</script>
+<script src="../../app/controllers/stripectrl.js">
+</script>
+
+
+    <script  src="../../assets/js/jquery-2.1.4.js"></script>
+
+    <script  src="../../assets/js/jquery.dropotron.min.js"></script>
+    <script  src="../../assets/js/jquery.scrolly.min.js"></script>
+    <script  src="../../assets/js/jquery.onvisible.min.js"></script>
+    <script  src="../../assets/js/skel.min.js"></script>
+    <script  src="../../assets/js/util.js"></script>
+    <script  src="../../assets/js/searchEngine.js"></script>
+    <script  src="../../assets/js/main.js"></script>
+</html>

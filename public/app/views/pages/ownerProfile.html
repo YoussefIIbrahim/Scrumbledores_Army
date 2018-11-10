@@ -1,0 +1,481 @@
+<link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+<link rel="stylesheet" href="../../../assets/css/Gym.css" />
+<link rel="stylesheet" href="../../../assets/css/reviews.css" />
+<link rel="stylesheet" href="../../../assets/css/calendar.css" />
+<link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+<link rel="stylesheet" href="../../../assets/css/profile.css" />
+<link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+<link rel="stylesheet" href="../../../assets/css/searchEnginenav.css"> <!-- Resource style -->
+<link rel="stylesheet" href="../../../assets/css/chatWindowOwner.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+
+    <style>
+.dropbtn {
+    background-color: #222;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #14ad8f}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #444;
+}
+
+
+    .chatnav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        text-align:center;
+    }
+
+    .chatnav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+
+    }
+
+    .chatnav a:hover{
+        color: #f1f1f1;
+    }
+
+    .chatnav .closebtn {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 60px;
+        margin-left: 0px;
+        color: #14ad8f;
+
+    }
+
+    @media screen and (max-height: 450px) {
+      .chatnav {padding-top: 15px;}
+      .chatnav a {font-size: 18px;}
+    }
+
+    .ordersnav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        text-align:center;
+    }
+
+    .ordersnav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+
+    }
+
+    .ordersnav a:hover{
+        color: #f1f1f1;
+    }
+
+    .ordersnav .closebtn {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 60px;
+        margin-left: 0px;
+        color: #14ad8f;
+
+    }
+
+    @media screen and (max-height: 450px) {
+      .ordersnav {padding-top: 15px;}
+      .ordersnav a {font-size: 18px;}
+    }
+
+    .notificationnav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        text-align:center;
+    }
+
+    .notificationnav a {
+        color: #C96666;
+        text-decoration: none;
+        font-size: 25px;
+        display: block;
+        transition: 0.3s;
+
+    }
+
+    .notificationnav a:hover{
+        color: #fff;
+    }
+
+    .notificationnav .closebtn {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 60px;
+        margin-left: 0px;
+        color: #14ad8f;
+
+    }
+
+    @media screen and (max-height: 450px) {
+      .notificationnav {padding-top: 15px;}
+      .notificationnav a {font-size: 18px;}
+    }
+
+
+    body {
+        font-family: "Lato", sans-serif;
+        transition: background-color .5s;
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover, .offcanvas a:focus{
+        color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 60px;
+        margin-left: 0px;
+        color: #14ad8f;
+    }
+
+    #main {
+        transition: margin-left .5s;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+    </style>
+
+    <style>
+    input[type=text] {
+        width: 20%;
+        height: 50px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 30px;
+        background-color: white;
+        background-image: url('searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    input[type=text]:focus {
+        width: 60%;
+    }
+    </style>
+    <div class="demo" ng-hide = "show">
+      <div id="demo-content">
+
+        <div id="loader-wrapper">
+          <div id="loader"></div>
+
+          <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+
+        </div>
+
+      </div>
+  </div>
+  <div ng-show= "show">
+
+    <div id="myOrdersSidenav" class="ordersnav">
+    <a ng-click="toggleOrders()" href="javascript:void(0)" class="closebtn" onclick="closeOrdersNav()">&times;</a>
+    <br></br>
+    <div style="margin-left:25%;  margin-top:10%; color:#fff;" class=" col-md-9 col-lg-9 ">
+        <table style="width:100%; float:none; margin-left:-10%;" class="table table-user-information">
+          <thead>
+            <td style="font-size:2rem; font-weight:700; color:#14ad8f;">
+              Orders
+            </td>
+            <td style="margin-right:-10px; float:right; font-size:2rem; font-weight:700; color:#14ad8f;">
+              Status
+            </td>
+          </thead>
+          <tbody>
+
+              <tr ng-repeat = "order in myorders">
+
+              <td style="line-height:40px;" >Username : <strong style="color: #14ad8f">{{order.clientID.ownerID.username}} </strong>  Address : <strong style="color: #14ad8f">{{order.clientID.address}}</strong>  Payment : <strong style="color: #14ad8f">{{order.paymentType}}</strong></td>
+
+              <td style="float:right; line-height:40px;">
+                <div class="dropdown">
+                  <button class="dropbtn">{{order.status}}</button>
+                  <div class="dropdown-content">
+                    <a ng-click = "changeStatus(order,'Pending')">Pending</a>
+                    <a ng-click = "changeStatus(order,'Delivering')">Delivering</a>
+                    <a ng-click = "changeStatus(order,'Delivered')">Delivered</a>
+                    <a>Refunded</a>
+                  </div>
+                </div>
+              </td>
+              </tr>
+
+
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+
+    <div id="myNotificationSidenav" class="notificationnav">
+    <a ng-click="toggleNotification()" href="javascript:void(0)" class="closebtn" onclick="closeNotificationNav()">&times;</a>
+    <ul style="cursor: pointer; color: #888; line-height: 3rem; font-size: 1.5rem;">
+    <li ng-repeat = "notification in main.myProfile.profile.notifications">
+    <a style=" font-size: 1.25rem;">
+    {{notification.notification}}
+    <a>
+    </li>
+
+    </ul>
+    </div>
+
+    <div id="mySidenav" class="sidenav" ng-hide="notification">
+    <a ng-click="toggleHam()" ng-hide="search || chat"  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <ul>
+    <li><a href = "/">Home</a></li>
+
+    <li  ng-click="toggleNotification(); main.notificationnumber =0;" style="cursor:pointer" onclick="openNotificationNav()">
+      <span class="badge badge-notify" style="background:#C96666;position:absolute; margin-left:140px;">{{main.notificationnumber}}</span>
+        Notifications
+    </li>
+    <li ng-click="toggleOrders();" style="cursor:pointer" onclick="openOrdersNav()">
+        My Orders
+    </li>
+
+
+    <li  ><a ng-click="setSelected1(oPCtrl.user.profile.ownerID)"><span>Go to My HomePage</span></a></li>
+    <li><a href = "/videos">Videos</a></li>
+    <li><a href = "/contactUs">Contact Us</a></li>
+    <li><a href = "/about">About</a></li>
+    <li><a href = "/faqs">FAQs</a></li>
+      <li ><a href="/" ng-click="main.logout()">Sign Out</a></li>
+
+    </ul>
+    </div>
+
+<div id="main">
+	<div id="wrapper">
+    <div class="overlay"></div>
+    <!-- Sidebar -->
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+          <button href="#" ng-hide="ham" ng-click="toggleHam()" style="background: transparent;" onclick="openNav()" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="badge badge-notify" style="background:#C96666;position:relative;margin-left:27px;margin-bottom:20px;">{{main.notificationnumber}}</span>
+              <span class="hamb-top"></span>
+              <span class="hamb-middle"></span>
+              <span class="hamb-bottom"></span>
+          </button>
+            <div id="page-wrapper">
+                <div id="header" style="background-image: url('{{oPCtrl.coverPicPath}}')">
+                    <div class="inner">
+                    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+                        <div class="container">
+                            <div class="fb-profile">
+                               <img align="middle" class="fb-image-profile thumbnail" src="{{oPCtrl.profilePicPath}}" alt="Profile image example"/>
+                                <div class="header">
+                                    <div class="fb-profile-text">
+                                        <h1>{{oPCtrl.user.profile.organizationName}}</h1>
+                                        <hras>
+                                        <p style="text-align: center; font-size: 1.5em;">{{oPCtrl.user.profile.ownerName}}</p>
+                                        </hras>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 style="padding-top:50px" class="panel-title">{{oPCtrl.user.profile.organizationName}}</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{oPCtrl.profilePicPath}}" class="img-circle img-responsive"> </div>
+
+                                            <div class=" col-md-9 col-lg-9 ">
+                                                <table class="table table-user-information">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="line-height:40px;">Organization</td>
+                                                        <td style="line-height:40px;">{{oPCtrl.user.profile.organizationName}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="line-height:40px;">Username</td>
+                                                        <td style="line-height:40px;">{{oPCtrl.user.user.username}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="line-height:40px;">Address</td>
+                                                            <td style="line-height:40px;">{{oPCtrl.user.profile.address}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="line-height:40px;">Email</td>
+                                                            <td style="line-height:40px;"><a>{{oPCtrl.user.user.email}}</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="line-height:40px;">Phone Number</td>
+                                                            <td style="line-height:40px;">{{oPCtrl.user.profile.phoneNumber}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="line-height:40px;">Description</td>
+                                                            <td style="line-height:40px;">{{oPCtrl.user.profile.description}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="line-height:40px;">Website</td>
+                                                            <td style="line-height:40px;">{{oPCtrl.user.profile.website}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <a href="/editOwnerProfile" class="btn btn-primary" style="padding: 10px 30px; margin-left: 75%;">Edit</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br></br>
+                                <div style="margin-left:10%; color:#fff;" class=" col-md-9 col-lg-9 ">
+                                    <table style="width:1000px; float:none; margin-left:-25%;" class="table table-user-information">
+                                    </table>
+                                </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        </div>
+    <!-- /#wrapper -->
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+    function openChatNav() {
+        document.getElementById("myChatSidenav").style.width = "100%";
+    }
+
+    function closeChatNav() {
+        document.getElementById("myChatSidenav").style.width = "0";
+    }
+    function openNotificationNav() {
+        document.getElementById("myNotificationSidenav").style.width = "18%";
+    }
+
+    function closeNotificationNav() {
+        document.getElementById("myNotificationSidenav").style.width = "0";
+    }
+    function openOrdersNav() {
+        document.getElementById("myOrdersSidenav").style.width = "100%";
+    }
+
+    function closeOrdersNav() {
+        document.getElementById("myOrdersSidenav").style.width = "0";
+    }
+    </script>

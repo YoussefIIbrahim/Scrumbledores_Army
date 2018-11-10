@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+<link rel="stylesheet" href="../../../assets/css/style.css"> <!-- Resource style -->
+<link rel="stylesheet" type="text/css" href="../../../assets/css/login.css">
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div ng-show="show">
+
+<script src="../../../assets/js/main.js"></script>
+<nav class="cd-stretchy-nav">
+      <a class="cd-nav-trigger" href="#0">
+          <span aria-hidden="true"></span>
+      </a>
+
+      <ul>
+        <li><a href="/" class="active"><span>HomePage</span></a></li>
+        <li ng-hide="logged"><a href="/register"><span>Sign Up</span></a></li>
+        <li ng-hide="logged"><a href="/login"><span>Sign In</span></a></li>
+        <li ng-show="logged"><a href="/" ng-click="main.logout()"><span>Sign Out</span></a></li>
+        <li ng-show="logged"><a href="javascript:void(0)" ng-click="goToProfile()"><span>My Profile</span></a></li>
+         <li><a href="/videos"><span>Videos</span></a></li>
+        <li><a href="/faqs"><span>FAQs</span></a></li>
+            <li><a href="/about"><span>About us</span></a></li>
+        <li><a href="/contactUs"><span>Contact Us</span></a></li>
+
+      </ul>
+
+      <span aria-hidden="true" class="stretchy-nav-bg"></span>
+  </nav>
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in-user"><label for="tab-2" class="tab">Add Fitness Program</label>
+        <div class="login-form">
+            <div class="edit-user-htm">
+              <div class="group">
+                  <label for="newannouncement" class="label">Plan Name</label>
+                  <input id="newannouncement" type="text" ng-model="FName" class="input">
+              </div>
+              <div class="group">
+                  <label for="newannouncement" class="label">Client Username</label>
+                  <input id="newannouncement" type="text" ng-model="clientUser" class="input">
+              </div>
+                <div class="group">
+                    <label for="ppic" class="label">Nutrition Plan PDF</label>
+                    <input class="input" type="file" file-model="doc"/>
+                </div>
+                <br></br>
+                <div class="group">
+                    <input type="submit" ng-click = "submitNutritionPlan()" class="button" value="Save">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

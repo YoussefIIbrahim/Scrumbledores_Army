@@ -1,0 +1,400 @@
+
+    <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/css/Gym.css" />
+
+    <link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+    <link rel="stylesheet" href="../../../assets/css/reviews.css" />
+    <link rel="stylesheet" href="../../../assets/css/calendar.css" />
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../../assets/css/chatWindowOwner.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <script>
+        $(document).ready(function() {
+        $('.opening-hours li').eq(new Date().getDay()).addClass('today');
+        });
+    </script>
+<style>
+
+.chatnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.chatnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.chatnav a:hover{
+    color: #f1f1f1;
+}
+
+.chatnav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .chatnav {padding-top: 15px;}
+  .chatnav a {font-size: 18px;}
+}
+
+
+.notificationnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.notificationnav a {
+    color: #C96666;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.notificationnav a:hover{
+    color: #fff;
+}
+
+.notificationnav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .notificationnav {padding-top: 15px;}
+  .notificationnav a {font-size: 18px;}
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+<style>
+input[type=text] {
+    width: 20%;
+    height: 50px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 30px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 60%;
+}
+</style>
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div ng-show="show">
+
+
+<div id="myChatSidenav" class="chatnav">
+  <a ng-click="toggleChat()" href="javascript:void(0)" class="closebtn" onclick="closeChatNav()">&times;</a>
+  <div class="chat_window1" id="chat" >
+    <div class="top_menu1">
+        <div class="title1">CHAT</div>
+    </div>
+    <div class="online1">
+<h1 style="margin-top: 30px; margin-bottom: 30px; font-size:16.6px;font-family:sans-serif; font-weight:normal;color:#808080">ONLINE USERS
+</h1>
+</br>
+
+  <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+    <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+      <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+</div>
+    <ul class="messages1">
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hello!</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+    </ul>
+    <div class="bottom1_wrapper1 clearfix1">
+        <div class="message1_input1_wrapper1">
+            <input class="message1_input1" placeholder="Type your message here..." />
+        </div>
+        <div class="send1_message1">
+            <div class="text1">SEND</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div id="mySearchSidenav" class="searchnav">
+<a ng-click="toggleSearch()" href="javascript:void(0)" class="closebtn" onclick="closeSearchNav()">&times;</a>
+<form>
+<input type="text" name="search" placeholder="Search.." style="background: #333; border-radius: 20px;">
+</form>
+</div>
+
+<div id="myNotificationSidenav" class="notificationnav">
+<a ng-click="toggleNotification()" href="javascript:void(0)" class="closebtn" onclick="closeNotificationNav()">&times;</a>
+<ul style="cursor: pointer; color: #888; line-height: 3rem; font-size: 1.5rem;">
+<li ng-repeat = "notification in main.myProfile.profile.notifications">
+<a style=" font-size: 1.25rem;">
+{{notification.notification}}
+<a>
+</li>
+
+</ul>
+</div>
+
+<div id="mySidenav" class="sidenav" ng-hide="notification">
+<a ng-click="toggleHam()" ng-hide="search || chat"  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<ul>
+<li><a href = "/">Home</a></li>
+<li ng-click="toggleSearch()" ng-hide="search" style="cursor:pointer" onclick="openSearchNav()">Search</li>
+
+<li ng-show="logged" ng-click="toggleNotification(); main.notificationnumber =0;" style="cursor:pointer" onclick="openNotificationNav()">
+  <span class="badge badge-notify" style="background:#C96666;position:absolute; margin-left:140px;">{{main.notificationnumber}}</span>
+    Notifications
+</li>
+
+<li ng-show="logged" ><a href="javascript:void(0)" ng-click="main.goToProfile()"><span>My Profile</span></a></li>
+<li><a href = "/videos">Videos</a></li>
+<li><a href = "/contactUs">Contact Us</a></li>
+<li><a href = "/about">About</a></li>
+<li><a href = "/faqs">FAQs</a></li>
+  <li ng-show="logged"><a href="/" ng-click="main.logout()">Sign Out</a></li>
+<li ng-hide="logged"><a href="/register">Sign Up</a></li>
+<li ng-hide="logged"><a href="/login">Sign In</a></li>
+
+</ul>
+</div> -->
+<div id="main">
+
+    <div id="wrapper">
+    <!-- Sidebar -->
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper" >
+            <!-- <button href="#" ng-hide="ham" ng-click="toggleHam()" style="background: transparent;" onclick="openNav()" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+              <span class="badge badge-notify" style="background:#C96666;position:relative;margin-left:27px;margin-bottom:20px;">  <button href="#" ng-hide="ham" ng-click="toggleHam()" style="background: transparent;" onclick="openNav()" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                  <span class="badge badge-notify" style="background:#C96666;position:relative;margin-left:27px;margin-bottom:20px;">{{main.notificationnumber}}</span>
+                    <span class="hamb-top"></span>
+                    <span class="hamb-middle"></span>
+                    <span class="hamb-bottom"></span>
+                </button></span>
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button> -->
+            <section class="reviews-and-rating" style="background-color: #06130E; margin-top: -200px;">
+              <div id="reviews" class="wrapper style1" style="margin:0;padding:250px;">
+                              <a class="btn btn-block btn-success" style="width: 10%; line-height: 400%; margin-left: 45%"  href="/GymHomepage">Go Back</a>
+
+                <header class="trainers" style="text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                <p><!--[-->Reviews<!--]--></p>
+                <hr />
+                </header>
+
+                <div class="featured-clients"  style="background-color: #06130E">
+      							<div class="row">
+                      <div ng-repeat="eval in RC.evals" class="col-md-4"><!-- repeat here-->
+                        <div class="client">
+                          <header>
+                            <div class="client-meta">
+                              <h3 class="fn"> </h3>
+                              <small class="job">{{eval.review}} </small>
+                              <div class="star-rating" title="Rated 4.00 out of 5"><span style="width:{{eval.rating}}%"><strong class="rating">4.00</strong> out of 5</span></div>
+                            </div>
+                          </header>
+                        </div> <!-- .client -->
+                      </div> <!-- .col-md-4 -->
+                    </div> <!-- .row -->
+      						</div> <!-- .featured-clients -->
+              </div>
+            </section>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+
+function openChatNav() {
+    document.getElementById("myChatSidenav").style.width = "100%";
+}
+
+function closeChatNav() {
+    document.getElementById("myChatSidenav").style.width = "0";
+}
+function openNotificationNav() {
+    document.getElementById("myNotificationSidenav").style.width = "13.75%";
+}
+
+function closeNotificationNav() {
+    document.getElementById("myNotificationSidenav").style.width = "0";
+}
+</script>

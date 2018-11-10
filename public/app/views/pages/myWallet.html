@@ -1,0 +1,514 @@
+    <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+    <link rel="stylesheet" href="../../../assets/css/Gym.css" />
+    <link rel="stylesheet" href="../../../assets/css/reviews.css" />
+    <link rel="stylesheet" href="../../../assets/css/calendar.css" />
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../../assets/css/chatWindowOwner.css">
+    <link rel="stylesheet" href="../../../assets/css/myCart.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <script>
+        $(document).ready(function() {
+        $('.opening-hours li').eq(new Date().getDay()).addClass('today');
+        });
+    </script>
+<style>
+
+.chatnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(7, 19, 13, 0.99);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.chatnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.chatnav a:hover{
+    color: #f1f1f1;
+}
+
+.chatnav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .chatnav {padding-top: 15px;}
+  .chatnav a {font-size: 18px;}
+}
+
+.notificationnav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(7, 19, 13, 0.99);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.notificationnav a {
+    color: #C96666;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+
+}
+
+.notificationnav a:hover{
+    color: #fff;
+}
+
+.notificationnav .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+
+}
+
+@media screen and (max-height: 450px) {
+  .notificationnav {padding-top: 15px;}
+  .notificationnav a {font-size: 18px;}
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(7, 19, 13, 0.99);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 60px;
+    margin-left: 0px;
+    color: #14ad8f;
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+<style>
+input[type=text] {
+    width: 20%;
+    height: 50px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 30px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 60%;
+}
+</style>
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div ng-show="show">
+
+
+<div id="myChatSidenav" class="chatnav">
+  <a ng-click="toggleChat()" href="javascript:void(0)" class="closebtn" onclick="closeChatNav()">&times;</a>
+  <div class="chat_window1" id="chat" >
+    <div class="top_menu1">
+        <div class="title1">CHAT</div>
+    </div>
+    <div class="online1">
+<h1 style="margin-top: 30px; margin-bottom: 30px; font-size:16.6px;font-family:sans-serif; font-weight:normal;color:#808080">ONLINE USERS
+</h1>
+</br>
+
+  <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+    <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+      <a style="cursor:pointer; font-size:15px;padding-left:20%; font-weight:normal;">Nadeen Ghali</a></br>
+
+</div>
+    <ul class="messages1">
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hello!</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">Hi</div>
+            </div>
+        </li>
+
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 left1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+        <li class="message1 right1 appeared1">
+            <div class="text1_wrapper1">
+                <div class="text1">:)</div>
+            </div>
+        </li>
+    </ul>
+    <div class="bottom1_wrapper1 clearfix1">
+        <div class="message1_input1_wrapper1">
+            <input class="message1_input1" placeholder="Type your message here..." />
+        </div>
+        <div class="send1_message1">
+            <div class="text1">SEND</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="myNotificationSidenav" class="notificationnav">
+  <a ng-click="toggleNotification()" href="javascript:void(0)" class="closebtn" onclick="closeNotificationNav()">&times;</a>
+<ul style="cursor: pointer; color: #888; line-height: 3rem; font-size: 1.5rem;">
+  <li>
+    <a style=" font-size: 1.25rem;">
+    Coach Arnold says Hi!
+    <a>
+  </li>
+  <li>
+    <a style=" font-size: 1.25rem;">
+    Coach Arnold says Hi!
+    <a>
+  </li>
+  <li>
+    <a style=" font-size: 1.25rem;">
+    Coach Arnold says Hi!
+    <a>
+  </li>
+</ul>
+</div>
+
+<div id="mySidenav" class="sidenav" ng-hide="notification">
+  <a ng-click="toggleHam()" ng-hide="search || chat"  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <ul>
+    <li ng-click="toggleNotification()" ng-hide="notification" style="cursor:pointer" onclick="openNotificationNav()">
+      <span class="badge badge-notify" style="background:#C96666;position:relative; margin-left:170px;">3</span>
+        Notifications
+    </li>
+    <li ng-click="toggleChat()" ng-hide="chat" style="cursor:pointer" onclick="openChatNav()">Chat</li>
+
+  </ul>
+</div>
+<div id="main">
+  <div id="wrapper">
+    <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                       Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="/">Welcome Page</a>
+                </li>
+                <li>
+                    <a href="/userProfile">My Profile</a>
+                </li>
+                <li>
+                    <a href="https://www.bodybuilding.com">Entity Website</a>
+                </li>
+                <li>
+                    <a href="#">Logout</a>
+                </li>
+                <li>
+                    <a href="#search">Search</a>
+                </li>
+                <li>
+                    <div id="search">
+                        <button type="button" class="close">×</button>
+                        <form>
+                            <input style="width: 76%" type="search" value="" placeholder="type keyword(s) here" />
+                            <button type="submit" class="btn btn-success">Search</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="page-content-wrapper" >
+          <button href="#" style="background: transparent;" type="button" class="hamburger is-closed" data-toggle="offcanvas">
+              <span class="hamb-top"></span>
+              <span class="hamb-middle"></span>
+              <span class="hamb-bottom"></span>
+          </button>
+        <div class="cart-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Total</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in cart.cart">
+                                <td class="col-sm-8 col-md-6">
+                                <div class="media">
+                                    <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><strong>{{item.item.product.productName}}</strong></h4>
+                                        <h5 class="media-heading">By <strong>{{item.item.orgName}}</strong></h5>
+                                        <span>Status: </span><span class="text-success"><strong>In Stock {{item.item.product.quantity}}</strong></span>
+                                    </div>
+                                </div></td>
+                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                {{item.quantity}}
+                                </td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong>${{item.item.product.price}}</strong></td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong>{{item.quantity*item.item.product.price}}</strong></td>
+                                <td class="col-sm-1 col-md-1">
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="float:right;">
+                    <h3 style="float:right:">Total</h3>
+                    <br>
+                    <h3><strong>${{cart.total}}</strong></h3>
+                  </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <!-- wallet -->
+  <br></br>
+
+        <div class="container">
+
+        <div class="row">
+          <table class="table table-hover">
+            <thead>
+                                      <tr>
+                                          <th>My Wallet</th>
+                                      </tr>
+                                  </thead>
+              <tbody>
+
+                <tr>
+
+                    <td><h5>&nbsp;&nbsp;&nbsp;Balance</h5></td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td class="text-right" style="text-align: right;"><h5 ><strong>${{cart.balance}}  &nbsp; &nbsp;</strong></h5></td>
+                </tr>
+                <tr>
+
+                    <td><h5>&nbsp;&nbsp;&nbsp;To Be Paid</h5></td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td class="text-right" style="text-align: right;"><h5 ><strong>${{cart.total}}  &nbsp; &nbsp;</strong></h5></td>
+                </tr>
+                <tr>
+
+                    <td><h5>&nbsp;&nbsp;&nbsp;New Balance</h5></td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td> &nbsp; </td>
+                    <td class="text-right" style="text-align: right;"><h5 ><strong>${{cart.balance - cart.total}}  &nbsp; &nbsp;</strong></h5></td>
+                </tr>
+                  <tr>
+                      <td> &nbsp; </td>
+                      <td> &nbsp; </td>
+                      <td> &nbsp; </td>
+                      <td> &nbsp; </td>
+                      <td> &nbsp; </td>
+                      <td> &nbsp; </td>
+                      <td> &nbsp; </td>
+
+
+                      <td style="width: 18%">
+
+                      <button style="width:245px;" type="button" class="btn btn-primary" ng-click="purchase(cart.w)">
+                          <span class="glyphicon glyphicon-shopping-cart"></span> Confirm Payment
+                      </button></td>
+
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+
+<!-- COD -->
+
+
+<br></br>
+
+
+
+
+    </div>
+  </div>
+  </div>
+  </div>
+   </div>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+function openChatNav() {
+    document.getElementById("myChatSidenav").style.width = "100%";
+}
+
+function closeChatNav() {
+    document.getElementById("myChatSidenav").style.width = "0";
+}
+function openNotificationNav() {
+    document.getElementById("myNotificationSidenav").style.width = "13.75%";
+}
+
+function closeNotificationNav() {
+    document.getElementById("myNotificationSidenav").style.width = "0";
+}
+</script>

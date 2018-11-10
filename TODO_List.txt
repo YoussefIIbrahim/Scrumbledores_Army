@@ -1,0 +1,20 @@
+
+resend Email(forgot password - registration email) show and hide - not yet
+
+show error when owner tries to refund -- not Yet
+
+membership shit - not yet
+
+payment - not yet
+
+uploading - not yet
+
+take a look at is owner in sessions and Memberships - not yet
+
+rating stars - not yet
+
+Attend and Subscribe buttons to add SweetAlert -- not yet
+
+Sripe view
+
+confirm cash page button responsive

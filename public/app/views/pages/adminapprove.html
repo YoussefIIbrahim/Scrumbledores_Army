@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="../../../assets/css/Gym.css" />
+
+		<link rel="stylesheet" href="../../../assets/css/adminapprove.css" />
+		<link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+	<link rel="stylesheet" href="../../../assets/css/main.css">
+		<script src="../../../assets/js/modernizr.js"></script> <!-- Modernizr -->
+    	<script src="../../../assets/js/jquery.min.js"></script>
+      	<script src="../../../assets/js/main.js"></script>
+
+
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../../assets/css/reset.css">
+        <link rel="stylesheet" href="../../assets/css/style.css">
+        <link rel="stylesheet" href="../../assets/css/searchEngine.css">
+        <link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+
+
+        <style type="text/css">
+                .toolbar ul {
+                    display:table-row;
+                }
+                .toolbar ul li
+                {
+                    display: table-cell;
+                    height: 100px;
+                    list-style-type: none;
+                    margin: 10px;
+                    vertical-align: middle;
+                }
+                .toolbar ul li a {
+                    display:table-cell;
+                    vertical-align: middle;
+                    height:100px;
+                    border: solid 1px black;
+                }
+                .toolbar ul li.button a {
+                    height:50px;
+                    border: solid 1px black;
+                }
+            </style>
+      <div class="demo" ng-hide = "show">
+        <div id="demo-content">
+
+          <div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+                  <div class="loader-section section-right"></div>
+
+          </div>
+
+        </div>
+    </div>
+<div class="html" ng-show="show">
+  <nav class="cd-stretchy-nav" id = "cd-stretchy-nav">
+      <a class="cd-nav-trigger" ng-click = "main.showList = true "  href="javascript:void(0)">
+          <span aria-hidden="true"></span>
+      </a>
+      <ul ng-show = "main.showList">
+          <li><a href="/" class="active"><span>HomePage</span></a></li>
+          <li ng-hide="logged"><a href="/register"><span>Sign Up</span></a></li>
+          <li ng-hide="logged"><a href="/login"><span>Sign In</span></a></li>
+          <li ng-show="logged"><a href="/" ng-click="main.logout()"><span>Sign Out</span></a></li>
+          <li ng-show="logged&&!isAdmin"><a href="javascript:void(0)" ng-click="goToProfile()"><span>My Profile</span></a></li>
+           <li><a href="/videos"><span>Videos</span></a></li>
+          <li><a href="/faqs"><span>FAQs</span></a></li>
+          <li><a href="/contactUs"><span>Contact Us</span></a></li>
+          <li><a href="/about"><span>About us</span></a></li>
+      </ul>
+      <span aria-hidden="true" class="stretchy-nav-bg"></span>
+  </nav>
+  <br></br>
+  <p style="font-size:35px; text-align:center;">Business Requests</p>
+  <div class="landing"    style=" margin-left: 200px; margin-right:200px; margin-top:100px; margin-bottom:100px;">
+			<div id="page-wrapper">
+
+					<section id="two" class="wrapper alt style2"style="width:100%; background: #06130E;">
+
+						<section ng-repeat="g in admin.gyms" class="spotlight">
+              <div class="content"style="width:100%;">
+                    <h2>{{g.organizationName}}</h2>
+                    <div style="float:right; ">
+                  <button ng-hide ="g.approved" ng-click="approveB(g._id)" class="btn-primary">Approve</button>
+                  <div  style="float:right;">
+                  <button ng-click="deleteB(g._id)" class="btn-danger">Delete</button>
+                	</div>
+                  <br></br>
+										</div>
+									</div>
+
+						</section>
+          <section class="carousel" id="announcements">
+              <header class="announcements"  style="text-align: center; color: #14ad8f; font-size: 1.5rem;">
+                  <p><!--[-->Announcements<!--]--></p>
+                  <hr />
+              </header>
+              <div class="reel" style=" margin-top:-100px; margin-bottom: 150px; overflow: visible; transform: translate(0px, 0px);">
+
+								<!-- <article ng-repeat="ann in admin.announcements">
+										<a href="#" class="image featured"><img src="../../images/2.jpg" alt="" /></a>
+										<header>
+										</header>
+										<p>{{ann.body}}</p>
+								</article> -->
+
+								<article ng-repeat="ann in admin.announcements">
+										<a href="#" class="image featured"><img style="max-height: 270px; margin-top : 30px;" src="../../../HomeAnnouncements/{{ann._id}}" alt=""></a>
+
+										<p>{{ann.body}}</p>
+										<a class="btn btn-block btn-danger" ng-click="removeAnn(ann._id)" style="width: 10%; margin-left: 85%; margin-top: 0%; margin-bottom: 100px;" >Delete</a>
+
+								</article>
+
+
+              </div>
+              <a class="btn btn-block btn-success" style="width: 30%; margin-left: 35%; margin-top: -8%; color: #06130E; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);"  href="/addAnnouncementAdmin">Add Announcement</a>
+
+              <span class="forward" style="display: block;">
+              </span>
+              <span class="backward" style="display: block;">
+              </span>
+          </section>
+
+
+					<!-- <div class="html">
+					  <br></br>
+					  <p style="font-size:35px; text-align:center;">Add Balance</p>
+					  <div class="landing"    style=" margin-left: 200px; margin-right:200px; margin-top:100px; margin-bottom:100px;">
+								<div id="page-wrapper">
+
+										<section id="two" class="wrapper alt style2"style="width:100%;">
+
+											<section class="spotlight">
+					              <div class="content"style="width:100%;">
+													<h2>
+			                    <p>Username: </p>
+													<br>
+													<div  style="float:right;">
+														<button style="width:100px; height:50px;" class="btn btn-primary">Approve</button>
+														<button style="width:100px; height:50px;" class="btn-danger">Reject</button>
+														<br></br>
+													</div>
+
+													<br>
+													<p>Amount: </p>
+													<h2>
+												</div>
+											</section>
+										</section>
+								</div>
+						</div>
+				</div> -->
+</div>
+</div>
+
+</div>
+			<script src="../../../assets/js/jquery-2.1.4.js"></script>
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/jquery.dropotron.min.js"></script>
+			<script src="../../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../../assets/js/jquery.onvisible.min.js"></script>
+			<script src="../../../assets/js/skel.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->

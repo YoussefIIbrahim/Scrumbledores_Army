@@ -1,0 +1,142 @@
+<link rel="stylesheet" type = "text/css"  href="assets/css/animate.css">
+<link rel="stylesheet" type = "text/css"  href="assets/css/style.css">
+<link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+<link rel="stylesheet" href="../../../assets/css/style.css"> <!-- Resource style -->
+<link rel="stylesheet" type="text/css" href="../../../assets/css/login.css">
+<link rel="stylesheet" href="../../../assets/css/popup.css" />
+<div class="demo" ng-hide = "show">
+  <div id="demo-content">
+
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+    </div>
+
+  </div>
+</div>
+<div class="login-wrap" ng-show ="show">
+  <nav class="cd-stretchy-nav">
+        <a class="cd-nav-trigger" href="#0">
+            <span aria-hidden="true"></span>
+        </a>
+
+        <ul>
+          <li><a href="/" class="active"><span>HomePage</span></a></li>
+          <li ng-hide="logged"><a href="/register"><span>Sign Up</span></a></li>
+          <li ng-hide="logged"><a href="/login"><span>Sign In</span></a></li>
+          <li ng-show="logged"><a href="/" ng-click="main.logout()"><span>Sign Out</span></a></li>
+          <li ng-show="logged"><a href="javascript:void(0)" ng-click="goToProfile()"><span>My Profile</span></a></li>
+           <li><a href="/videos"><span>Videos</span></a></li>
+          <li><a href="/faqs"><span>FAQs</span></a></li>
+              <li><a href="/about"><span>About us</span></a></li>
+          <li><a href="/contactUs"><span>Contact Us</span></a></li>
+
+        </ul>
+
+        <span aria-hidden="true" class="stretchy-nav-bg"></span>
+    </nav>
+  <div class="row show-hide-message" ng-show = "showErrMsg">
+    <div id="popup1" class="overlay"  >
+        <div class="popup">
+            <h2>{{errMsg.title}}</h2>
+            <a class="close"  ng-click = "hideErr()">&times;</a>
+            <div class="content">
+                {{errMsg.content}}
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+     <div class="login-html">
+         <input id="tab-1" type="radio" name="tab" class="sign-in-user" checked><label for="tab-1" class="tab">User</label>
+         <input id="tab-2" type="radio" name="tab" class="sign-in-owner"><label for="tab-2" class="tab">Owner</label>
+         <div class="login-form">
+             <form ng-submit = "registerClient()" validate>
+             <div class="sign-in-user-htm">
+                 <div class="group">
+                     <label for="uemail" class="label">Email</label>
+                     <input id="uemail" type="email" class="input" ng-model = "regClient.user.email" required>
+                 </div>
+                 <div class="group">
+                     <label for="uuser" class="label">Username</label>
+                     <input id="uuser" type="text" class="input" ng-model = "regClient.user.username" required>
+                 </div>
+                 <div class="group">
+                     <label for="upass" class="label">Password</label>
+                     <input id="upass" type="text" class="input" data-type="password" ng-model = "regClient.user.password" required>
+                 </div>
+                 <div class="group">
+                     <label for="ucpass" class="label">Confirm Password</label>
+                     <input id="ucpass" type="text" class="input" data-type="password" ng-model = "regClient.user.password1" required>
+                 </div>
+                 <div class="hr"></div>
+                 <div class="foot-lnk">
+                     <a href="/login">Already Registered?</a>
+                 </div>
+                 <br></br>
+                 <div class="group">
+                     <input type="submit" class="button" value="Register" >
+                 </div>
+                 <div class="hr"></div>
+                 <div class="foot-lnk">
+                      <a ng-click = "resendVerification()">Resend Verification Email</a>
+                 </div>
+             </div>
+              </form>
+
+           <form ng-submit = "register()" validate>
+
+             <div class="sign-in-owner-htm">
+               <div class="group">
+                   <label for="oemail" class="label">Email</label>
+                   <input id="oemail" type="email" class="input"  ng-model = "regOwner.user.email" required>
+               </div>
+               <div class="group">
+                   <label for="ousername" class="label">Owner Username</label>
+                   <input id="ousername" type="text" class="input" ng-model = "regOwner.user.username" required>
+               </div>
+               <div class="group">
+                   <label for="opass" class="label">Password</label>
+                   <input id="opass" type="password" class="input" data-type="password" ng-model = "regOwner.user.password" required>
+               </div>
+               <div class="group">
+                   <label for="copass" class="label">Confirm Password</label>
+                   <input id="copass" type="password" class="input" data-type="password" ng-model = "regOwner.user.password1" required>
+               </div>
+               <div class="hr"></div>
+               <div class="foot-lnk">
+                   <a href="/login">Already Registered?</a>
+               </div>
+               <br></br>
+               <div class="group">
+                   <input type="submit" class="button" value="Register" >
+               </div>
+               <div class="hr"></div>
+               <div class="foot-lnk">
+                   <a ng-click = "resendVerification()">Resend Verification Email</a>
+               </div>
+
+             </div>
+
+           </form>
+
+
+
+</div>
+</div>
+</div>
+<script src="../../../assets/js/jquery-2.1.4.js"></script>
+<script src="../../../assets/js/jquery.min.js"></script>
+<script src="../../../assets/js/jquery.dropotron.min.js"></script>
+<script src="../../../assets/js/jquery.scrolly.min.js"></script>
+<script src="../../../assets/js/jquery.onvisible.min.js"></script>
+<script src="../../../assets/js/skel.min.js"></script>
+<script src="../../../assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="../../../assets/js/main.js"></script>

@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="../../../assets/css/sweetalert.css">
+
+<link rel="stylesheet" href="../../../assets/css/reset.css"> <!-- CSS reset -->
+<link rel="stylesheet" href="../../../assets/css/style.css"> <!-- Resource style -->
+<link rel="stylesheet" type="text/css" href="../../../assets/css/login.css">
+<link rel="stylesheet" href="../../assets/css/main2.css">
+
+<style type="text/css">
+        .toolbar ul {
+            display:table-row;
+        }
+        .toolbar ul li
+        {
+            display: table-cell;
+            height: 100px;
+            list-style-type: none;
+            margin: 10px;
+            vertical-align: middle;
+        }
+        .toolbar ul li a {
+            display:table-cell;
+            vertical-align: middle;
+            height:100px;
+            border: solid 1px black;
+        }
+        .toolbar ul li.button a {
+            height:50px;
+            border: solid 1px black;
+        }
+    </style>
+
+        <div class="demo" ng-hide = "show">
+          <div id="demo-content">
+
+            <div id="loader-wrapper">
+              <div id="loader"></div>
+
+              <div class="loader-section section-left"></div>
+                    <div class="loader-section section-right"></div>
+
+            </div>
+
+          </div>
+      </div>
+<div ng-show = "show">
+
+
+<nav class="cd-stretchy-nav">
+      <a class="cd-nav-trigger" href="#0">
+          <span aria-hidden="true"></span>
+      </a>
+
+      <ul>
+        <li><a href="/" class="active"><span>HomePage</span></a></li>
+        <li ng-hide="logged"><a href="/register"><span>Sign Up</span></a></li>
+        <li ng-hide="logged"><a href="/login"><span>Sign In</span></a></li>
+        <li ng-show="logged"><a href="/" ng-click="main.logout()"><span>Sign Out</span></a></li>
+        <li ng-show="logged"><a href="javascript:void(0)" ng-click="goToProfile()"><span>My Profile</span></a></li>
+         <li><a href="/videos"><span>Videos</span></a></li>
+        <li><a href="/faqs"><span>FAQs</span></a></li>
+            <li><a href="/about"><span>About us</span></a></li>
+        <li><a href="/contactUs"><span>Contact Us</span></a></li>
+
+      </ul>
+
+      <span aria-hidden="true" class="stretchy-nav-bg"></span>
+  </nav>
+<div class="login-wrap">
+
+<div class="row show-hide-message" ng-show = "showErrMsg">
+  <div id="popup1" class="overlay"  >
+      <div class="popup">
+          <h2>{{errMsg.title}}</h2>
+          <a class="close"  ng-click = "hideErr()">&times;</a>
+          <div class="content">
+              {{errMsg.content}}
+          </div>
+      </div>
+  </div>
+</div>
+
+
+    <div class="login-html" style="height:100%" >
+        <input id="tab-1" type="radio" name="tab" class="sign-in-user" checked><label for="tab-1" class="tab">SIGN IN</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-in-owner"><label for="tab-2" class="tab"></label>
+        <div class="login-form">
+          <form ng-submit = "login()" validate>
+              <div class="sign-in-user-htm">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input" ng-model="user.username" required>
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="password" ng-model ="user.password" required>
+                </div>
+                <div class="foot-lnk">
+                    <a href="/forgotPassword">Forgot Password?</a>
+                </div>
+
+                <br></br>
+                <div class="group">
+                    <input id="check" type="checkbox" class="check" checked>
+                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Sign In">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <a href="/register">Not Registered?</a>
+                </div>
+            </div>
+          </form>
+
+        </div>
+    </div>
+</div>
+</div>
+
+      <script src="../../../assets/js/main.js"></script>
